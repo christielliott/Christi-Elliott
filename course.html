@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lash Course - Christi Elliott</title>
+    <title>Professional Lash Course - Christi Elliott</title>
     <link rel="stylesheet" href="style.css">
     <style>
         .course-container {
@@ -85,11 +85,13 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            flex-grow: 1;
         }
 
         .module-progress {
             font-size: 14px;
             opacity: 0.8;
+            margin-right: 15px;
         }
 
         .module-toggle {
@@ -195,22 +197,6 @@
             accent-color: #667eea;
         }
 
-        .submit-btn {
-            margin-top: 15px;
-            padding: 10px 20px;
-            background: #667eea;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            background: #5568d3;
-        }
-
         .testimonials {
             margin-top: 40px;
             padding: 20px;
@@ -306,8 +292,8 @@
 
     <header class="page-header">
         <div class="container">
-            <h1>Professional Lash Application Course</h1>
-            <p>Master the art of lash application with our comprehensive interactive course</p>
+            <h1>Professional Lash Business Course</h1>
+            <p>Master the complete business side of lash artistry with our comprehensive 16-module course</p>
         </div>
     </header>
 
@@ -331,11 +317,11 @@
                     <div class="stat-label">Lessons Completed</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-number">6</div>
+                    <div class="stat-number">16</div>
                     <div class="stat-label">Total Modules</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-number">25</div>
+                    <div class="stat-number" id="totalLessons">0</div>
                     <div class="stat-label">Total Lessons</div>
                 </div>
             </div>
@@ -343,22 +329,22 @@
             <div class="modules" id="modules"></div>
 
             <button class="certification-btn" id="certificationBtn" disabled>
-                Get Your Certificate
+                Get Your Completion Certificate
             </button>
 
             <div class="testimonials">
                 <h2>Student Success Stories</h2>
                 <div class="testimonial">
-                    <p class="testimonial-text">"This course transformed my lash application skills! I went from nervous to confident in just 3 weeks."</p>
+                    <p class="testimonial-text">"This course gave me the confidence to launch my lash business professionally. The business modules were invaluable!"</p>
+                    <p class="testimonial-author">- Jessica R.</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"I learned more about the technical side and business management than I expected. Highly recommend!"</p>
+                    <p class="testimonial-author">- Amanda T.</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"The compliance and safety modules helped me set up my business correctly from day one. Worth every penny!"</p>
                     <p class="testimonial-author">- Sarah M.</p>
-                </div>
-                <div class="testimonial">
-                    <p class="testimonial-text">"The interactive format really helped me learn at my own pace. I'm now offering lash services at my salon!"</p>
-                    <p class="testimonial-author">- Jessica L.</p>
-                </div>
-                <div class="testimonial">
-                    <p class="testimonial-text">"Highly recommend! The detailed lessons and quizzes made sure I understood everything thoroughly."</p>
-                    <p class="testimonial-author">- Amanda K.</p>
                 </div>
             </div>
         </div>
@@ -378,212 +364,183 @@
         const courseData = [
             {
                 id: 1,
-                title: "Module 1: Fundamentals of Lash Application",
+                title: "Business Foundations",
+                description: "Setting up your lash business legally and properly.",
                 lessons: [
-                    {
-                        id: 1,
-                        title: "Introduction to Lash Types",
-                        description: "Learn about different lash materials, weights, and styles. Understand the characteristics of synthetic, silk, and mink lashes.",
-                        duration: "15 min"
-                    },
-                    {
-                        id: 2,
-                        title: "Lash Anatomy & Terminology",
-                        description: "Master the vocabulary and understand the anatomy of natural lashes and extensions.",
-                        duration: "12 min"
-                    },
-                    {
-                        id: 3,
-                        title: "Safety & Hygiene Protocols",
-                        description: "Essential safety measures, sterilization procedures, and health protocols for lash application.",
-                        duration: "18 min"
-                    },
-                    {
-                        id: 4,
-                        title: "Tool Overview & Maintenance",
-                        description: "Complete guide to lash application tools, tweezers, adhesives, and how to maintain them properly.",
-                        duration: "14 min"
-                    }
-                ],
-                quiz: [
-                    { question: "What is the most popular lash material used in extensions?", options: ["Synthetic", "Silk", "Mink", "Real Hair"], correct: 1 },
-                    { question: "How often should tools be sterilized?", options: ["Weekly", "Monthly", "Between each client", "Yearly"], correct: 2 }
+                    { id: 1, title: "Choosing Your Business Structure", description: "Sole proprietor, LLC, or corporation — understanding the pros and cons of each.", duration: "18 min" },
+                    { id: 2, title: "Business Registration & Licenses", description: "Navigate the legal requirements and registrations needed in your area.", duration: "16 min" },
+                    { id: 3, title: "Business Insurance Essentials", description: "What insurance you need and how to choose the right coverage.", duration: "14 min" },
+                    { id: 4, title: "Setting Up Your Workspace", description: "Creating a legal, compliant workspace for lash application.", duration: "12 min" }
                 ]
             },
             {
                 id: 2,
-                title: "Module 2: Pre-Application Preparation",
+                title: "Hygiene & Sterilisation",
+                description: "The hygiene fundamentals that protect your clients, your insurance, and your reputation.",
                 lessons: [
-                    {
-                        id: 5,
-                        title: "Client Consultation",
-                        description: "How to conduct thorough consultations, discuss expectations, and select appropriate lash styles.",
-                        duration: "16 min"
-                    },
-                    {
-                        id: 6,
-                        title: "Eye Assessment Techniques",
-                        description: "Learn to assess eye shape, lid structure, and natural lash condition for proper design selection.",
-                        duration: "14 min"
-                    },
-                    {
-                        id: 7,
-                        title: "Workspace Setup",
-                        description: "Optimize your workspace for comfort and efficiency. Lighting, chair positioning, and organization.",
-                        duration: "11 min"
-                    },
-                    {
-                        id: 8,
-                        title: "Client Preparation & Cleansing",
-                        description: "Prepare clients for application. Proper cleansing techniques and product removal.",
-                        duration: "13 min"
-                    }
-                ],
-                quiz: [
-                    { question: "What should be done before lash application?", options: ["Apply makeup", "Cleanse natural lashes", "Curl natural lashes", "Apply oils"], correct: 1 },
-                    { question: "Ideal lighting temperature for lash work is:", options: ["Warm (2700K)", "Cool white (4000K)", "Daylight (5500-6500K)", "Dark lighting"], correct: 2 }
+                    { id: 5, title: "Sterilization Standards & Methods", description: "Understanding autoclave, chemical sterilization, and industry standards.", duration: "15 min" },
+                    { id: 6, title: "Cross-Contamination Prevention", description: "Protocols to prevent spreading infections and pathogens.", duration: "14 min" },
+                    { id: 7, title: "Health & Safety Regulations", description: "Complying with health department regulations and guidelines.", duration: "13 min" },
+                    { id: 8, title: "Client Health Screening", description: "Safe screening practices to identify contraindications.", duration: "12 min" },
+                    { id: 9, title: "Documentation & Records", description: "Keeping proper records for compliance and liability protection.", duration: "11 min" }
                 ]
             },
             {
                 id: 3,
-                title: "Module 3: Basic Application Techniques",
+                title: "Adhesive Science",
+                description: "Understanding the chemistry behind lash glue so you can troubleshoot like a pro.",
                 lessons: [
-                    {
-                        id: 9,
-                        title: "The Isolation Technique",
-                        description: "Master the critical skill of isolating individual natural lashes for proper extension attachment.",
-                        duration: "20 min"
-                    },
-                    {
-                        id: 10,
-                        title: "Adhesive Application",
-                        description: "Perfect adhesive placement, drop size, and curing techniques for optimal bonding.",
-                        duration: "15 min"
-                    },
-                    {
-                        id: 11,
-                        title: "Lash Placement Methods",
-                        description: "Different methods of placing extensions: Straight, Angle, and Staggered placement.",
-                        duration: "17 min"
-                    },
-                    {
-                        id: 12,
-                        title: "Creating Natural Blends",
-                        description: "Blend extension lashes seamlessly with natural lashes for a beautiful, undetectable look.",
-                        duration: "16 min"
-                    }
-                ],
-                quiz: [
-                    { question: "Lash isolation is important because:", options: ["It looks better", "Prevents infection", "Ensures proper adhesion", "Saves time"], correct: 2 },
-                    { question: "How much adhesive should be used per lash?", options: ["A large drop", "A small drop (size of grain of rice)", "No adhesive needed", "The entire lash"], correct: 1 }
+                    { id: 10, title: "Adhesive Chemistry Basics", description: "How cyanoacrylate bonds form and cure.", duration: "16 min" },
+                    { id: 11, title: "Viscosity & Consistency", description: "How to select the right adhesive viscosity for your technique.", duration: "14 min" },
+                    { id: 12, title: "Environmental Factors & Retention", description: "How humidity, temperature, and airflow affect adhesive performance.", duration: "15 min" },
+                    { id: 13, title: "Adhesive Troubleshooting", description: "Common adhesive problems and how to solve them.", duration: "14 min" },
+                    { id: 14, title: "Storage & Shelf Life", description: "Proper storage methods to maximize adhesive lifespan.", duration: "10 min" }
                 ]
             },
             {
                 id: 4,
-                title: "Module 4: Advanced Design & Styling",
+                title: "Lash Weights & Safety",
+                description: "Choosing diameters and styles that protect natural lashes.",
                 lessons: [
-                    {
-                        id: 13,
-                        title: "Design Mapping",
-                        description: "Create custom lash maps based on client eye shape, goals, and preferences.",
-                        duration: "18 min"
-                    },
-                    {
-                        id: 14,
-                        title: "Volume Lash Techniques",
-                        description: "Advanced techniques for Russian volume (mega volume) and hybrid lashes.",
-                        duration: "22 min"
-                    },
-                    {
-                        id: 15,
-                        title: "Color Theory & Styling",
-                        description: "Understanding colors, undertones, and styling choices for different looks.",
-                        duration: "14 min"
-                    },
-                    {
-                        id: 16,
-                        title: "Correcting Common Mistakes",
-                        description: "Identify and fix common application errors and improve your technique.",
-                        duration: "16 min"
-                    }
-                ],
-                quiz: [
-                    { question: "Volume lashes use how many extensions per natural lash?", options: ["1", "2-6", "10+", "None"], correct: 1 },
-                    { question: "Which curl pattern creates the most dramatic look?", options: ["J curl", "B curl", "C curl", "D curl"], correct: 3 }
+                    { id: 15, title: "Lash Diameter Guide", description: "Understanding diameters (0.03, 0.05, 0.07, 0.10, 0.12mm) and their impact.", duration: "14 min" },
+                    { id: 16, title: "Weight Calculation & Ratios", description: "Calculating safe weight ratios to protect natural lashes.", duration: "15 min" },
+                    { id: 17, title: "Lash Styles & Effects", description: "Different curl patterns and their characteristics.", duration: "12 min" },
+                    { id: 18, title: "Natural Lash Health", description: "Recognizing unhealthy lashes and when to refuse service.", duration: "13 min" }
                 ]
             },
             {
                 id: 5,
-                title: "Module 5: Maintenance & Aftercare",
+                title: "Lash Application Basics",
+                description: "The technique fundamentals every lash artist needs to nail.",
                 lessons: [
-                    {
-                        id: 17,
-                        title: "Client Aftercare Instructions",
-                        description: "Comprehensive aftercare guide to ensure clients maintain beautiful lashes longer.",
-                        duration: "12 min"
-                    },
-                    {
-                        id: 18,
-                        title: "Lash Fills & Maintenance",
-                        description: "Schedule fills appropriately and maintain client retention through proper maintenance.",
-                        duration: "14 min"
-                    },
-                    {
-                        id: 19,
-                        title: "Troubleshooting Problems",
-                        description: "Address common issues like retention problems, irritation, and allergic reactions.",
-                        duration: "15 min"
-                    },
-                    {
-                        id: 20,
-                        title: "Product Recommendations",
-                        description: "Recommend and sell appropriate aftercare products to enhance client experience.",
-                        duration: "11 min"
-                    }
-                ],
-                quiz: [
-                    { question: "How long should clients wait before wetting their lashes after application?", options: ["2 hours", "6 hours", "24 hours", "48 hours"], correct: 2 },
-                    { question: "How often should clients get fill appointments?", options: ["Every week", "Every 2 weeks", "Every 4 weeks", "Never"], correct: 2 }
+                    { id: 19, title: "The Isolation Technique", description: "Mastering isolation — the foundation of perfect application.", duration: "18 min" },
+                    { id: 20, title: "Lash Mapping & Design", description: "Creating customized lash maps for different eye shapes.", duration: "16 min" },
+                    { id: 21, title: "Adhesive Application", description: "Proper adhesive placement and drop sizing techniques.", duration: "14 min" },
+                    { id: 22, title: "Classic vs. Volume Application", description: "Techniques for classic single lashes and volume fans.", duration: "15 min" },
+                    { id: 23, title: "Placement & Angle", description: "Achieving consistent placement and angle for natural results.", duration: "13 min" }
                 ]
             },
             {
                 id: 6,
-                title: "Module 6: Business & Professional Development",
+                title: "Lash Cycle & Infills",
+                description: "The biology of the natural lash cycle and how it shapes your appointments.",
                 lessons: [
-                    {
-                        id: 21,
-                        title: "Building Your Lash Business",
-                        description: "Start your lash business: pricing, marketing, and client management strategies.",
-                        duration: "17 min"
-                    },
-                    {
-                        id: 22,
-                        title: "Client Communication",
-                        description: "Develop professional communication skills to build lasting client relationships.",
-                        duration: "13 min"
-                    },
-                    {
-                        id: 23,
-                        title: "Social Media & Portfolio",
-                        description: "Showcase your work effectively on social media and build a strong portfolio.",
-                        duration: "15 min"
-                    },
-                    {
-                        id: 24,
-                        title: "Continuing Education",
-                        description: "Stay updated with industry trends and continue improving your craft.",
-                        duration: "10 min"
-                    },
-                    {
-                        id: 25,
-                        title: "Course Conclusion",
-                        description: "Final thoughts and next steps in your lash journey. Certification overview.",
-                        duration: "8 min"
-                    }
-                ],
-                quiz: [
-                    { question: "What is the most important factor for client retention?", options: ["Low prices", "Quality work and good communication", "Free services", "Fast service"], correct: 1 },
-                    { question: "How should you price your lash services?", options: ["As cheap as possible", "Same as everyone else", "Based on experience, location, and materials", "Randomly"], correct: 2 }
+                    { id: 24, title: "Natural Lash Growth Cycle", description: "Understanding anagen, catagen, and telogen phases.", duration: "14 min" },
+                    { id: 25, title: "Retention & Shedding", description: "Why lashes shed and realistic retention expectations.", duration: "13 min" },
+                    { id: 26, title: "Infill Appointment Planning", description: "Scheduling and managing infill appointments effectively.", duration: "15 min" },
+                    { id: 27, title: "Infill Techniques", description: "Best practices for infill applications and maintenance.", duration: "14 min" }
+                ]
+            },
+            {
+                id: 7,
+                title: "Environment Mastery",
+                description: "Controlling humidity, temperature and airflow for consistent retention.",
+                lessons: [
+                    { id: 28, title: "Humidity Control", description: "Optimal humidity ranges and how to maintain them.", duration: "13 min" },
+                    { id: 29, title: "Temperature Management", description: "Room temperature effects on adhesive and client comfort.", duration: "12 min" },
+                    { id: 30, title: "Air Quality & Ventilation", description: "Preventing fumes and maintaining air quality.", duration: "12 min" },
+                    { id: 31, title: "Environmental Monitoring", description: "Tools and methods to track and adjust environmental conditions.", duration: "11 min" }
+                ]
+            },
+            {
+                id: 8,
+                title: "Business Banking & Financials",
+                description: "Setting up the financial side of your business so it runs cleanly.",
+                lessons: [
+                    { id: 32, title: "Business Bank Account Setup", description: "Separating personal and business finances.", duration: "12 min" },
+                    { id: 33, title: "Accounting Basics", description: "Income, expenses, and keeping clean financial records.", duration: "15 min" },
+                    { id: 34, title: "Pricing Your Services", description: "Formula-based pricing that covers costs and profit.", duration: "14 min" },
+                    { id: 35, title: "Tax Planning", description: "Quarterly taxes, deductions, and tax planning strategies.", duration: "16 min" },
+                    { id: 36, title: "Profit Margins & Growth", description: "Analyzing profitability and scaling your business.", duration: "13 min" }
+                ]
+            },
+            {
+                id: 9,
+                title: "Booking & Payments",
+                description: "Setting up the systems that handle bookings, deposits, and payments.",
+                lessons: [
+                    { id: 37, title: "Booking System Selection", description: "Choosing the right booking software for your business.", duration: "13 min" },
+                    { id: 38, title: "Deposit & Payment Policies", description: "Setting clear policies that protect your business.", duration: "12 min" },
+                    { id: 39, title: "Payment Processing", description: "Accepting cards, transfers, and other payment methods.", duration: "14 min" },
+                    { id: 40, title: "Managing Cancellations", description: "Handling no-shows and cancellations professionally.", duration: "11 min" }
+                ]
+            },
+            {
+                id: 10,
+                title: "Compliance & Safety (Advanced)",
+                description: "Going beyond the basics — pricing, hygiene, product safety and unregulated risks.",
+                lessons: [
+                    { id: 41, title: "State & Local Regulations", description: "Understanding regulations that apply to your specific location.", duration: "15 min" },
+                    { id: 42, title: "Product Safety & Certification", description: "Ensuring all products meet safety standards and regulations.", duration: "13 min" },
+                    { id: 43, title: "Liability & Legal Risks", description: "Understanding and mitigating legal exposure.", duration: "14 min" },
+                    { id: 44, title: "Documentation Best Practices", description: "Maintaining records that protect you legally.", duration: "12 min" }
+                ]
+            },
+            {
+                id: 11,
+                title: "Marketing Strategies",
+                description: "Building a marketing system that brings in the right clients consistently.",
+                lessons: [
+                    { id: 45, title: "Brand Development", description: "Creating a unique brand identity for your lash business.", duration: "15 min" },
+                    { id: 46, title: "Social Media Strategy", description: "Building an effective social media presence.", duration: "14 min" },
+                    { id: 47, title: "Content Creation", description: "Creating content that showcases your work and expertise.", duration: "13 min" },
+                    { id: 48, title: "SEO & Local Visibility", description: "Getting found by local clients searching for lash services.", duration: "12 min" },
+                    { id: 49, title: "Referral Programs", description: "Building a referral system that generates new clients.", duration: "12 min" }
+                ]
+            },
+            {
+                id: 12,
+                title: "Client Care & Aftercare",
+                description: "Looking after clients beyond the appointment itself.",
+                lessons: [
+                    { id: 50, title: "Aftercare Instructions", description: "Detailed aftercare guidance that extends lash retention.", duration: "14 min" },
+                    { id: 51, title: "Client Communication", description: "Clear, consistent communication with clients.", duration: "13 min" },
+                    { id: 52, title: "Handling Issues & Complaints", description: "Professional resolution of client problems.", duration: "14 min" },
+                    { id: 53, title: "Follow-up Systems", description: "Automated systems to keep clients engaged and returning.", duration: "12 min" }
+                ]
+            },
+            {
+                id: 13,
+                title: "Advanced Marketing Tools",
+                description: "Going beyond the basics with paid ads, referrals, and loyalty systems.",
+                lessons: [
+                    { id: 54, title: "Paid Advertising", description: "Running effective Facebook and Instagram ad campaigns.", duration: "15 min" },
+                    { id: 55, title: "Email Marketing", description: "Building an email list and sending effective campaigns.", duration: "14 min" },
+                    { id: 56, title: "Loyalty Programs", description: "Creating loyalty systems that increase client lifetime value.", duration: "13 min" },
+                    { id: 57, title: "Analytics & Optimization", description: "Measuring results and optimizing your marketing.", duration: "12 min" }
+                ]
+            },
+            {
+                id: 14,
+                title: "Client Relationship Management",
+                description: "Handling the human side of your business — expectations, complaints, and loyalty.",
+                lessons: [
+                    { id: 58, title: "Consultation Skills", description: "Conducting consultations that set proper expectations.", duration: "13 min" },
+                    { id: 59, title: "Managing Expectations", description: "Clear communication about results, timelines, and care.", duration: "12 min" },
+                    { id: 60, title: "Building Loyalty", description: "Creating clients who return regularly and refer others.", duration: "13 min" },
+                    { id: 61, title: "Conflict Resolution", description: "Handling disagreements and complaints professionally.", duration: "12 min" }
+                ]
+            },
+            {
+                id: 15,
+                title: "Resources & Supplies",
+                description: "Choosing, sourcing, and managing the products that run your business.",
+                lessons: [
+                    { id: 62, title: "Sourcing Quality Products", description: "Finding reliable suppliers for lashes, adhesives, and tools.", duration: "13 min" },
+                    { id: 63, title: "Inventory Management", description: "Stock levels, ordering systems, and cost control.", duration: "14 min" },
+                    { id: 64, title: "Product Quality Standards", description: "Evaluating and comparing products for quality.", duration: "12 min" },
+                    { id: 65, title: "Retail & Resale", description: "Selling products to clients for additional revenue.", duration: "11 min" }
+                ]
+            },
+            {
+                id: 16,
+                title: "Wrapping Up",
+                description: "Finishing the course strong and planning your next steps.",
+                lessons: [
+                    { id: 66, title: "Your Lash Business Roadmap", description: "Creating a 90-day action plan to launch or grow your business.", duration: "16 min" },
+                    { id: 67, title: "Continuing Education", description: "Staying current with industry trends and skills.", duration: "12 min" },
+                    { id: 68, title: "Building Your Support Network", description: "Finding mentors, communities, and resources.", duration: "11 min" },
+                    { id: 69, title: "Course Reflection & Next Steps", description: "Final thoughts and your journey forward.", duration: "10 min" }
                 ]
             }
         ];
@@ -592,6 +549,8 @@
 
         function initializeCourse() {
             const modulesContainer = document.getElementById('modules');
+            const totalLessons = courseData.reduce((sum, m) => sum + m.lessons.length, 0);
+            document.getElementById('totalLessons').textContent = totalLessons;
 
             courseData.forEach(module => {
                 const moduleEl = createModuleElement(module);
@@ -611,9 +570,12 @@
             header.innerHTML = `
                 <div class="module-title">
                     <span>Module ${module.id}</span>
-                    <span>${module.title}</span>
+                    <div>
+                        <strong>${module.title}</strong>
+                        <div style="font-size: 12px; font-weight: normal; opacity: 0.9; margin-top: 3px;">${module.description}</div>
+                    </div>
                 </div>
-                <div style="display: flex; align-items: center; gap: 15px;">
+                <div style="display: flex; align-items: center; gap: 15px; white-space: nowrap;">
                     <span class="module-progress" id="progress-${module.id}">0/${module.lessons.length}</span>
                     <span class="module-toggle">▼</span>
                 </div>
@@ -634,11 +596,6 @@
                 const lessonEl = createLessonElement(lesson, module.id);
                 lessonsDiv.appendChild(lessonEl);
             });
-
-            if (module.quiz) {
-                const quizEl = createQuizElement(module.quiz, module.id);
-                lessonsDiv.appendChild(quizEl);
-            }
 
             content.appendChild(lessonsDiv);
             moduleDiv.appendChild(header);
@@ -683,34 +640,6 @@
             });
 
             return lessonDiv;
-        }
-
-        function createQuizElement(quiz, moduleId) {
-            const quizDiv = document.createElement('div');
-            quizDiv.className = 'quiz-section';
-            quizDiv.innerHTML = `<h4>Module ${moduleId} Quiz</h4>`;
-
-            quiz.forEach((q, index) => {
-                const questionDiv = document.createElement('div');
-                questionDiv.className = 'quiz-question';
-                questionDiv.innerHTML = `<strong>Q${index + 1}: ${q.question}</strong>`;
-
-                const optionsDiv = document.createElement('div');
-                q.options.forEach((option, optionIndex) => {
-                    const optionDiv = document.createElement('div');
-                    optionDiv.className = 'quiz-option';
-                    optionDiv.innerHTML = `
-                        <input type="radio" name="question-${index}" value="${optionIndex}" id="q${index}o${optionIndex}">
-                        <label for="q${index}o${optionIndex}" style="cursor: pointer; flex-grow: 1;">${option}</label>
-                    `;
-                    optionsDiv.appendChild(optionDiv);
-                });
-
-                questionDiv.appendChild(optionsDiv);
-                quizDiv.appendChild(questionDiv);
-            });
-
-            return quizDiv;
         }
 
         function updateProgress() {
@@ -764,18 +693,18 @@
 ╔════════════════════════════════════════════════════════════╗
 ║                  CERTIFICATE OF COMPLETION                ║
 ║                                                            ║
-║        Professional Lash Application Course                ║
+║     Professional Lash Business Course                      ║
 ║                                                            ║
 ║              Awarded to _________________                  ║
 ║                                                            ║
-║        For Successfully Completing All 6 Modules           ║
-║           and 25 Lessons in Professional Lash              ║
-║              Application Training                          ║
+║        For Successfully Completing All 16 Modules          ║
+║           and 69 Lessons in Professional Lash              ║
+║              Business Training                             ║
 ║                                                            ║
 ║        Date: ${new Date().toLocaleDateString()}                ║
 ║                                                            ║
 ║        Christi Elliott                                      ║
-║        Lash Course Instructor                              ║
+║        Lash Business Course Instructor                     ║
 ╚════════════════════════════════════════════════════════════╝
             `;
             alert(certification);
