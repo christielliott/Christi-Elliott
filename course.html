@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lash Course - Christi Elliott</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .course-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .course-progress {
+            margin: 30px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            color: white;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4CAF50, #45a049);
+            width: 0%;
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .modules {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .module {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .module:hover {
+            border-color: #667eea;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .module-header {
+            padding: 20px;
+            background: #f5f5f5;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .module-header:hover {
+            background: #efefef;
+        }
+
+        .module-header.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .module-title {
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .module-progress {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .module-toggle {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .module.open .module-toggle {
+            transform: rotate(180deg);
+        }
+
+        .module-content {
+            display: none;
+            padding: 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .module.open .module-content {
+            display: block;
+            max-height: 2000px;
+        }
+
+        .lessons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .lesson {
+            padding: 15px;
+            background: #f9f9f9;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .lesson.completed {
+            background: #e8f5e9;
+            border-left-color: #4CAF50;
+        }
+
+        .lesson-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .lesson-checkbox {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: #667eea;
+        }
+
+        .lesson-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .lesson-time {
+            font-size: 12px;
+            color: #999;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .quiz-section {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            border-radius: 5px;
+        }
+
+        .quiz-question {
+            margin: 15px 0;
+            font-weight: 500;
+        }
+
+        .quiz-option {
+            margin: 8px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-option:hover {
+            border-color: #667eea;
+        }
+
+        .quiz-option input {
+            margin-right: 8px;
+            accent-color: #667eea;
+        }
+
+        .submit-btn {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #5568d3;
+        }
+
+        .testimonials {
+            margin-top: 40px;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 10px;
+        }
+
+        .testimonial {
+            margin: 15px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 5px;
+            border-left: 4px solid #667eea;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .course-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-box {
+            padding: 15px;
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .certification-btn {
+            margin-top: 20px;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            width: 100%;
+            text-align: center;
+        }
+
+        .certification-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .certification-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Christi Elliott</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="course.html" class="active">Lash Course</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>Professional Lash Application Course</h1>
+            <p>Master the art of lash application with our comprehensive interactive course</p>
+        </div>
+    </header>
+
+    <section class="portfolio course-container">
+        <div class="container">
+            <div class="course-progress">
+                <h3>Your Progress</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill">0%</div>
+                </div>
+                <div id="progressText">0 of 0 lessons completed</div>
+            </div>
+
+            <div class="course-stats">
+                <div class="stat-box">
+                    <div class="stat-number" id="modulesCompleted">0</div>
+                    <div class="stat-label">Modules Completed</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" id="lessonsCompleted">0</div>
+                    <div class="stat-label">Lessons Completed</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Total Modules</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">25</div>
+                    <div class="stat-label">Total Lessons</div>
+                </div>
+            </div>
+
+            <div class="modules" id="modules"></div>
+
+            <button class="certification-btn" id="certificationBtn" disabled>
+                Get Your Certificate
+            </button>
+
+            <div class="testimonials">
+                <h2>Student Success Stories</h2>
+                <div class="testimonial">
+                    <p class="testimonial-text">"This course transformed my lash application skills! I went from nervous to confident in just 3 weeks."</p>
+                    <p class="testimonial-author">- Sarah M.</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"The interactive format really helped me learn at my own pace. I'm now offering lash services at my salon!"</p>
+                    <p class="testimonial-author">- Jessica L.</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"Highly recommend! The detailed lessons and quizzes made sure I understood everything thoroughly."</p>
+                    <p class="testimonial-author">- Amanda K.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Christi Elliott. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="contact.html">Contact</a>
+                <a href="#privacy">Privacy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const courseData = [
+            {
+                id: 1,
+                title: "Module 1: Fundamentals of Lash Application",
+                lessons: [
+                    {
+                        id: 1,
+                        title: "Introduction to Lash Types",
+                        description: "Learn about different lash materials, weights, and styles. Understand the characteristics of synthetic, silk, and mink lashes.",
+                        duration: "15 min"
+                    },
+                    {
+                        id: 2,
+                        title: "Lash Anatomy & Terminology",
+                        description: "Master the vocabulary and understand the anatomy of natural lashes and extensions.",
+                        duration: "12 min"
+                    },
+                    {
+                        id: 3,
+                        title: "Safety & Hygiene Protocols",
+                        description: "Essential safety measures, sterilization procedures, and health protocols for lash application.",
+                        duration: "18 min"
+                    },
+                    {
+                        id: 4,
+                        title: "Tool Overview & Maintenance",
+                        description: "Complete guide to lash application tools, tweezers, adhesives, and how to maintain them properly.",
+                        duration: "14 min"
+                    }
+                ],
+                quiz: [
+                    { question: "What is the most popular lash material used in extensions?", options: ["Synthetic", "Silk", "Mink", "Real Hair"], correct: 1 },
+                    { question: "How often should tools be sterilized?", options: ["Weekly", "Monthly", "Between each client", "Yearly"], correct: 2 }
+                ]
+            },
+            {
+                id: 2,
+                title: "Module 2: Pre-Application Preparation",
+                lessons: [
+                    {
+                        id: 5,
+                        title: "Client Consultation",
+                        description: "How to conduct thorough consultations, discuss expectations, and select appropriate lash styles.",
+                        duration: "16 min"
+                    },
+                    {
+                        id: 6,
+                        title: "Eye Assessment Techniques",
+                        description: "Learn to assess eye shape, lid structure, and natural lash condition for proper design selection.",
+                        duration: "14 min"
+                    },
+                    {
+                        id: 7,
+                        title: "Workspace Setup",
+                        description: "Optimize your workspace for comfort and efficiency. Lighting, chair positioning, and organization.",
+                        duration: "11 min"
+                    },
+                    {
+                        id: 8,
+                        title: "Client Preparation & Cleansing",
+                        description: "Prepare clients for application. Proper cleansing techniques and product removal.",
+                        duration: "13 min"
+                    }
+                ],
+                quiz: [
+                    { question: "What should be done before lash application?", options: ["Apply makeup", "Cleanse natural lashes", "Curl natural lashes", "Apply oils"], correct: 1 },
+                    { question: "Ideal lighting temperature for lash work is:", options: ["Warm (2700K)", "Cool white (4000K)", "Daylight (5500-6500K)", "Dark lighting"], correct: 2 }
+                ]
+            },
+            {
+                id: 3,
+                title: "Module 3: Basic Application Techniques",
+                lessons: [
+                    {
+                        id: 9,
+                        title: "The Isolation Technique",
+                        description: "Master the critical skill of isolating individual natural lashes for proper extension attachment.",
+                        duration: "20 min"
+                    },
+                    {
+                        id: 10,
+                        title: "Adhesive Application",
+                        description: "Perfect adhesive placement, drop size, and curing techniques for optimal bonding.",
+                        duration: "15 min"
+                    },
+                    {
+                        id: 11,
+                        title: "Lash Placement Methods",
+                        description: "Different methods of placing extensions: Straight, Angle, and Staggered placement.",
+                        duration: "17 min"
+                    },
+                    {
+                        id: 12,
+                        title: "Creating Natural Blends",
+                        description: "Blend extension lashes seamlessly with natural lashes for a beautiful, undetectable look.",
+                        duration: "16 min"
+                    }
+                ],
+                quiz: [
+                    { question: "Lash isolation is important because:", options: ["It looks better", "Prevents infection", "Ensures proper adhesion", "Saves time"], correct: 2 },
+                    { question: "How much adhesive should be used per lash?", options: ["A large drop", "A small drop (size of grain of rice)", "No adhesive needed", "The entire lash"], correct: 1 }
+                ]
+            },
+            {
+                id: 4,
+                title: "Module 4: Advanced Design & Styling",
+                lessons: [
+                    {
+                        id: 13,
+                        title: "Design Mapping",
+                        description: "Create custom lash maps based on client eye shape, goals, and preferences.",
+                        duration: "18 min"
+                    },
+                    {
+                        id: 14,
+                        title: "Volume Lash Techniques",
+                        description: "Advanced techniques for Russian volume (mega volume) and hybrid lashes.",
+                        duration: "22 min"
+                    },
+                    {
+                        id: 15,
+                        title: "Color Theory & Styling",
+                        description: "Understanding colors, undertones, and styling choices for different looks.",
+                        duration: "14 min"
+                    },
+                    {
+                        id: 16,
+                        title: "Correcting Common Mistakes",
+                        description: "Identify and fix common application errors and improve your technique.",
+                        duration: "16 min"
+                    }
+                ],
+                quiz: [
+                    { question: "Volume lashes use how many extensions per natural lash?", options: ["1", "2-6", "10+", "None"], correct: 1 },
+                    { question: "Which curl pattern creates the most dramatic look?", options: ["J curl", "B curl", "C curl", "D curl"], correct: 3 }
+                ]
+            },
+            {
+                id: 5,
+                title: "Module 5: Maintenance & Aftercare",
+                lessons: [
+                    {
+                        id: 17,
+                        title: "Client Aftercare Instructions",
+                        description: "Comprehensive aftercare guide to ensure clients maintain beautiful lashes longer.",
+                        duration: "12 min"
+                    },
+                    {
+                        id: 18,
+                        title: "Lash Fills & Maintenance",
+                        description: "Schedule fills appropriately and maintain client retention through proper maintenance.",
+                        duration: "14 min"
+                    },
+                    {
+                        id: 19,
+                        title: "Troubleshooting Problems",
+                        description: "Address common issues like retention problems, irritation, and allergic reactions.",
+                        duration: "15 min"
+                    },
+                    {
+                        id: 20,
+                        title: "Product Recommendations",
+                        description: "Recommend and sell appropriate aftercare products to enhance client experience.",
+                        duration: "11 min"
+                    }
+                ],
+                quiz: [
+                    { question: "How long should clients wait before wetting their lashes after application?", options: ["2 hours", "6 hours", "24 hours", "48 hours"], correct: 2 },
+                    { question: "How often should clients get fill appointments?", options: ["Every week", "Every 2 weeks", "Every 4 weeks", "Never"], correct: 2 }
+                ]
+            },
+            {
+                id: 6,
+                title: "Module 6: Business & Professional Development",
+                lessons: [
+                    {
+                        id: 21,
+                        title: "Building Your Lash Business",
+                        description: "Start your lash business: pricing, marketing, and client management strategies.",
+                        duration: "17 min"
+                    },
+                    {
+                        id: 22,
+                        title: "Client Communication",
+                        description: "Develop professional communication skills to build lasting client relationships.",
+                        duration: "13 min"
+                    },
+                    {
+                        id: 23,
+                        title: "Social Media & Portfolio",
+                        description: "Showcase your work effectively on social media and build a strong portfolio.",
+                        duration: "15 min"
+                    },
+                    {
+                        id: 24,
+                        title: "Continuing Education",
+                        description: "Stay updated with industry trends and continue improving your craft.",
+                        duration: "10 min"
+                    },
+                    {
+                        id: 25,
+                        title: "Course Conclusion",
+                        description: "Final thoughts and next steps in your lash journey. Certification overview.",
+                        duration: "8 min"
+                    }
+                ],
+                quiz: [
+                    { question: "What is the most important factor for client retention?", options: ["Low prices", "Quality work and good communication", "Free services", "Fast service"], correct: 1 },
+                    { question: "How should you price your lash services?", options: ["As cheap as possible", "Same as everyone else", "Based on experience, location, and materials", "Randomly"], correct: 2 }
+                ]
+            }
+        ];
+
+        let completedLessons = {};
+
+        function initializeCourse() {
+            const modulesContainer = document.getElementById('modules');
+
+            courseData.forEach(module => {
+                const moduleEl = createModuleElement(module);
+                modulesContainer.appendChild(moduleEl);
+            });
+
+            updateProgress();
+        }
+
+        function createModuleElement(module) {
+            const moduleDiv = document.createElement('div');
+            moduleDiv.className = 'module';
+            moduleDiv.setAttribute('data-module-id', module.id);
+
+            const header = document.createElement('div');
+            header.className = 'module-header';
+            header.innerHTML = `
+                <div class="module-title">
+                    <span>Module ${module.id}</span>
+                    <span>${module.title}</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <span class="module-progress" id="progress-${module.id}">0/${module.lessons.length}</span>
+                    <span class="module-toggle">▼</span>
+                </div>
+            `;
+
+            header.addEventListener('click', () => {
+                moduleDiv.classList.toggle('open');
+                header.classList.toggle('active');
+            });
+
+            const content = document.createElement('div');
+            content.className = 'module-content';
+
+            const lessonsDiv = document.createElement('div');
+            lessonsDiv.className = 'lessons';
+
+            module.lessons.forEach(lesson => {
+                const lessonEl = createLessonElement(lesson, module.id);
+                lessonsDiv.appendChild(lessonEl);
+            });
+
+            if (module.quiz) {
+                const quizEl = createQuizElement(module.quiz, module.id);
+                lessonsDiv.appendChild(quizEl);
+            }
+
+            content.appendChild(lessonsDiv);
+            moduleDiv.appendChild(header);
+            moduleDiv.appendChild(content);
+
+            return moduleDiv;
+        }
+
+        function createLessonElement(lesson, moduleId) {
+            const lessonDiv = document.createElement('div');
+            lessonDiv.className = 'lesson';
+            lessonDiv.setAttribute('data-lesson-id', lesson.id);
+
+            const lessonId = `lesson-${lesson.id}`;
+            const isCompleted = completedLessons[lessonId];
+
+            if (isCompleted) {
+                lessonDiv.classList.add('completed');
+            }
+
+            lessonDiv.innerHTML = `
+                <div class="lesson-title">
+                    <input type="checkbox" class="lesson-checkbox" data-lesson-id="${lesson.id}" data-module-id="${moduleId}" ${isCompleted ? 'checked' : ''}>
+                    <span>${lesson.title}</span>
+                </div>
+                <p class="lesson-description">${lesson.description}</p>
+                <span class="lesson-time">⏱️ ${lesson.duration}</span>
+            `;
+
+            const checkbox = lessonDiv.querySelector('.lesson-checkbox');
+            checkbox.addEventListener('change', (e) => {
+                const lessonId = `lesson-${e.target.getAttribute('data-lesson-id')}`;
+                if (e.target.checked) {
+                    completedLessons[lessonId] = true;
+                    lessonDiv.classList.add('completed');
+                } else {
+                    delete completedLessons[lessonId];
+                    lessonDiv.classList.remove('completed');
+                }
+                updateProgress();
+                saveProgress();
+            });
+
+            return lessonDiv;
+        }
+
+        function createQuizElement(quiz, moduleId) {
+            const quizDiv = document.createElement('div');
+            quizDiv.className = 'quiz-section';
+            quizDiv.innerHTML = `<h4>Module ${moduleId} Quiz</h4>`;
+
+            quiz.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'quiz-question';
+                questionDiv.innerHTML = `<strong>Q${index + 1}: ${q.question}</strong>`;
+
+                const optionsDiv = document.createElement('div');
+                q.options.forEach((option, optionIndex) => {
+                    const optionDiv = document.createElement('div');
+                    optionDiv.className = 'quiz-option';
+                    optionDiv.innerHTML = `
+                        <input type="radio" name="question-${index}" value="${optionIndex}" id="q${index}o${optionIndex}">
+                        <label for="q${index}o${optionIndex}" style="cursor: pointer; flex-grow: 1;">${option}</label>
+                    `;
+                    optionsDiv.appendChild(optionDiv);
+                });
+
+                questionDiv.appendChild(optionsDiv);
+                quizDiv.appendChild(questionDiv);
+            });
+
+            return quizDiv;
+        }
+
+        function updateProgress() {
+            const totalLessons = courseData.reduce((sum, m) => sum + m.lessons.length, 0);
+            const completedCount = Object.keys(completedLessons).length;
+
+            const percentage = totalLessons > 0 ? Math.round((completedCount / totalLessons) * 100) : 0;
+
+            document.getElementById('progressFill').style.width = percentage + '%';
+            document.getElementById('progressFill').textContent = percentage + '%';
+            document.getElementById('progressText').textContent = `${completedCount} of ${totalLessons} lessons completed`;
+
+            // Update module progress
+            courseData.forEach(module => {
+                const moduleCompleted = module.lessons.filter(lesson =>
+                    completedLessons[`lesson-${lesson.id}`]
+                ).length;
+                document.getElementById(`progress-${module.id}`).textContent =
+                    `${moduleCompleted}/${module.lessons.length}`;
+            });
+
+            // Update stats
+            const modulesCompleted = courseData.filter(module => {
+                return module.lessons.every(lesson => completedLessons[`lesson-${lesson.id}`]);
+            }).length;
+            document.getElementById('modulesCompleted').textContent = modulesCompleted;
+            document.getElementById('lessonsCompleted').textContent = completedCount;
+
+            // Enable/disable certification button
+            const certBtn = document.getElementById('certificationBtn');
+            if (percentage === 100) {
+                certBtn.disabled = false;
+            } else {
+                certBtn.disabled = true;
+            }
+        }
+
+        function saveProgress() {
+            localStorage.setItem('lashCourseProgress', JSON.stringify(completedLessons));
+        }
+
+        function loadProgress() {
+            const saved = localStorage.getItem('lashCourseProgress');
+            if (saved) {
+                completedLessons = JSON.parse(saved);
+            }
+        }
+
+        document.getElementById('certificationBtn').addEventListener('click', () => {
+            const certification = `
+╔════════════════════════════════════════════════════════════╗
+║                  CERTIFICATE OF COMPLETION                ║
+║                                                            ║
+║        Professional Lash Application Course                ║
+║                                                            ║
+║              Awarded to _________________                  ║
+║                                                            ║
+║        For Successfully Completing All 6 Modules           ║
+║           and 25 Lessons in Professional Lash              ║
+║              Application Training                          ║
+║                                                            ║
+║        Date: ${new Date().toLocaleDateString()}                ║
+║                                                            ║
+║        Christi Elliott                                      ║
+║        Lash Course Instructor                              ║
+╚════════════════════════════════════════════════════════════╝
+            `;
+            alert(certification);
+        });
+
+        loadProgress();
+        initializeCourse();
+        updateProgress();
+    </script>
+</body>
+</html>
