@@ -113,7 +113,7 @@
 
         .module.open .module-content {
             display: block;
-            max-height: 3000px;
+            max-height: 5000px;
         }
 
         .lessons {
@@ -194,7 +194,7 @@
 
         .lesson.expanded .lesson-content {
             display: block;
-            max-height: 2000px;
+            max-height: 3000px;
         }
 
         .content-section {
@@ -224,9 +224,16 @@
             margin-bottom: 10px;
         }
 
+        .content-section ol {
+            font-size: 14px;
+            color: #555;
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+
         .content-section li {
-            margin-bottom: 6px;
-            line-height: 1.5;
+            margin-bottom: 8px;
+            line-height: 1.6;
         }
 
         .content-section strong {
@@ -317,6 +324,26 @@
 
         .testimonial-author {
             font-weight: bold;
+            color: #333;
+        }
+
+        .callout-box {
+            padding: 12px;
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .example-box {
+            padding: 12px;
+            background: #e3f2fd;
+            border-left: 4px solid #2196F3;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-size: 14px;
             color: #333;
         }
     </style>
@@ -417,190 +444,14 @@
                         title: "Choosing Your Business Structure",
                         description: "Sole proprietor, LLC, or corporation — understanding the pros and cons of each.",
                         duration: "18 min",
-                        content: `
-                            <div class="content-section">
-                                <h4>Overview</h4>
-                                <p>Selecting the right business structure is one of the most important decisions you'll make as a lash artist. Your choice affects your taxes, liability, paperwork, and how much money you keep.</p>
-                            </div>
-
-                            <div class="content-section">
-                                <h4>Sole Proprietorship</h4>
-                                <p><strong>What it is:</strong> You and your business are legally one entity. This is the simplest structure.</p>
-                                <ul>
-                                    <li><strong>Pros:</strong> Easiest to set up, lowest startup costs, complete control, simple taxes</li>
-                                    <li><strong>Cons:</strong> Personal assets at risk, harder to get loans, less credibility</li>
-                                    <li><strong>Best for:</strong> Solo artists starting out with low risk</li>
-                                </ul>
-                            </div>
-
-                            <div class="content-section">
-                                <h4>LLC (Limited Liability Company)</h4>
-                                <p><strong>What it is:</strong> Your personal assets are separate from your business assets, protecting your personal finances.</p>
-                                <ul>
-                                    <li><strong>Pros:</strong> Personal asset protection, professional image, flexible taxes, moderate setup costs</li>
-                                    <li><strong>Cons:</strong> Slightly more paperwork, annual fees, more complex taxes</li>
-                                    <li><strong>Best for:</strong> Most lash artists building a professional business</li>
-                                </ul>
-                            </div>
-
-                            <div class="content-section">
-                                <h4>C Corporation</h4>
-                                <p><strong>What it is:</strong> A more formal structure where the business is its own legal entity, completely separate from you.</p>
-                                <ul>
-                                    <li><strong>Pros:</strong> Full liability protection, professional structure, easier to raise capital</li>
-                                    <li><strong>Cons:</strong> Double taxation, expensive setup and maintenance, complex paperwork</li>
-                                    <li><strong>Best for:</strong> Large businesses planning to hire many employees or seek investors</li>
-                                </ul>
-                            </div>
-
-                            <div class="content-section">
-                                <h4>Key Takeaway</h4>
-                                <p>Most successful lash artists start with either a Sole Proprietorship (if bootstrapping) or an LLC (for professional growth). An LLC provides the best balance of protection and simplicity for a lash business.</p>
-                            </div>
-                        `
+                        content: `<div class="content-section"><h4>Overview</h4><p>Selecting the right business structure is one of the most important decisions you'll make as a lash artist. Your choice affects your taxes, liability, paperwork, and how much money you keep.</p></div><div class="content-section"><h4>Sole Proprietorship</h4><p><strong>What it is:</strong> You and your business are legally one entity. This is the simplest structure.</p><ul><li><strong>Pros:</strong> Easiest to set up, lowest startup costs, complete control, simple taxes</li><li><strong>Cons:</strong> Personal assets at risk, harder to get loans, less credibility</li><li><strong>Best for:</strong> Solo artists starting out with low risk</li></ul></div>`
                     },
                     {
                         id: 2,
                         title: "Business Registration & Licenses",
                         description: "Navigate the legal requirements and registrations needed in your area.",
                         duration: "16 min",
-                        content: `
-                            <div class="content-section">
-                                <h4>Overview</h4>
-                                <p>Before you can legally operate a lash business, you need proper registration and licenses. Requirements vary by state, county, and city. This lesson covers what you typically need.</p>
-                            </div>
-
-                            <div class="content-section">
-                                <h4>Required Registrations</h4>
-                                <ul>
-                                    <li><strong>Business License:</strong> Your city or county business license. Usually $50-$200. Renew annually or biannually.</li>
-                                    <li><strong>Seller's Permit:</strong> Needed if you sell products (aftercare, lashes). Allows you to buy wholesale without sales tax.</li>
-                                    <li><strong>EIN (Employer Identification Number):</strong> Federal ID for your business. Free from the IRS. Needed even if you have no employees.</li>
-                                    <li><strong>DBA (Doing Business As):</strong> If using a business name different from your personal name, register it with your county.</li>
-                                </ul>
-                            </div>
-
-                            <div class="content-section">
-                                <h4>Lash Artist Licenses & Certifications</h4>
-                                <p><strong>Important:</strong> Requirements vary significantly by state. Some states require an Esthetician license or specific Lash Certification. Others have no requirements.</p>
-                                <ul>
-                                    <li>Check your state's board of cosmetology or esthetics website</li>
-                                    <li>Some states require 200-600 hours of formal training</li>
-                                    <li>Many states don't regulate lash artists specifically</li>
-                                    <li>Getting certified (even when not required) adds credibility and professional legitimacy</li>
-                                </ul>
-                            </div>
-
-                            <div class="content-section">
-                                <h4>Action Steps</h4>
-                                <ol style="margin-left: 20px;">
-                                    <li>Google "[Your State] Board of Cosmetology" and check lash requirements</li>
-                                    <li>Contact your city clerk's office about business license requirements</li>
-                                    <li>Apply for your EIN immediately (free, takes 10 minutes online)</li>
-                                    <li>Get a business license through your city/county</li>
-                                    <li>Consider getting formally certified for professional credibility</li>
-                                </ol>
-                            </div>
-                        `
-                    },
-                    {
-                        id: 3,
-                        title: "Business Insurance Essentials",
-                        description: "What insurance you need and how to choose the right coverage.",
-                        duration: "14 min",
-                        content: `
-                            <div class="content-section">
-                                <h4>Overview</h4>
-                                <p>Insurance protects you financially if something goes wrong. As a lash artist, you're working on people's faces — insurance is non-negotiable.</p>
-                            </div>
-
-                            <div class="content-section">
-                                <h4>Types of Insurance You Need</h4>
-                                <ul>
-                                    <li><strong>General Liability Insurance:</strong> Covers injuries or property damage. Client gets an eye infection? You're covered. Someone trips in your studio? Covered. Cost: $200-$400/year</li>
-                                    <li><strong>Professional Liability Insurance:</strong> Covers if your work causes injury (allergic reaction, lash damage). Essential for lash artists. Cost: $300-$600/year</li>
-                                    <li><strong>Business Property Insurance:</strong> Covers your equipment and supplies if stolen or damaged. Cost: $300-$500/year</li>
-                                </ul>
-                            </div>
-
-                            <div class="content-section">
-                                <h4>Where to Get Insurance</h4>
-                                <ul>
-                                    <li><strong>Specialty Beauty Insurance:</strong> Look for companies that specifically cover lash artists (Esthetics insurance)</li>
-                                    <li><strong>Standard Business Insurance:</strong> Your local insurance agent can bundle coverages</li>
-                                    <li><strong>Industry Associations:</strong> Many offer group rates (e.g., Beauty & Barber Supplier & Salons' Association)</li>
-                                </ul>
-                            </div>
-
-                            <div class="content-section">
-                                <h4>When Selecting Insurance</h4>
-                                <ul>
-                                    <li>Ask about coverage limits (get at least $1M general liability)</li>
-                                    <li>Ensure they cover allergic reactions and eye damage</li>
-                                    <li>Ask about deductibles (higher deductible = lower premium)</li>
-                                    <li>Get quotes from 2-3 providers before deciding</li>
-                                    <li>Save your policy documents</li>
-                                </ul>
-                            </div>
-
-                            <div class="content-section">
-                                <h4>Red Flag</h4>
-                                <p>Operating without insurance is risky. One lawsuit could bankrupt you. Insurance is one of your best investments.</p>
-                            </div>
-                        `
-                    },
-                    {
-                        id: 4,
-                        title: "Setting Up Your Workspace",
-                        description: "Creating a legal, compliant workspace for lash application.",
-                        duration: "12 min",
-                        content: `
-                            <div class="content-section">
-                                <h4>Overview</h4>
-                                <p>Your workspace must meet legal and health standards. This applies whether you're working from home, renting a chair, or in a salon.</p>
-                            </div>
-
-                            <div class="content-section">
-                                <h4>Workspace Options</h4>
-                                <ul>
-                                    <li><strong>Home-Based Studio:</strong> Check local zoning laws. Some cities don't allow businesses in residential areas. Cheapest option but verify legality first.</li>
-                                    <li><strong>Salon Chair Rental:</strong> Rent a chair in an existing salon. Low startup costs, shared overhead.</li>
-                                    <li><strong>Standalone Studio:</strong> Your own commercial space. Higher costs but full control and professional image.</li>
-                                </ul>
-                            </div>
-
-                            <div class="content-section">
-                                <h4>Legal Requirements</h4>
-                                <ul>
-                                    <li><strong>Zoning Compliance:</strong> Verify your location is zoned for your type of business</li>
-                                    <li><strong>Permits:</strong> Get occupancy permits and health department approvals</li>
-                                    <li><strong>Ventilation:</strong> Proper ventilation is required (building codes vary)</li>
-                                    <li><strong>Accessibility:</strong> Meet ADA requirements if applicable</li>
-                                    <li><strong>Safety Signs:</strong> Post any required health and safety notices</li>
-                                </ul>
-                            </div>
-
-                            <div class="content-section">
-                                <h4>Health & Safety Setup</h4>
-                                <ul>
-                                    <li>Invest in proper lighting (at least 500 lux)</li>
-                                    <li>Have hand sanitizer and surface disinfectants available</li>
-                                    <li>Install an autoclave or use pre-sterilized tools</li>
-                                    <li>Keep client health screening forms accessible</li>
-                                    <li>Have emergency contact information and accident report forms</li>
-                                </ul>
-                            </div>
-
-                            <div class="content-section">
-                                <h4>Professional Presentation</h4>
-                                <ul>
-                                    <li>Keep your space clean and organized</li>
-                                    <li>Have a comfortable waiting/seating area</li>
-                                    <li>Display your certifications and licenses</li>
-                                    <li>Have professional signage with your business name and services</li>
-                                </ul>
-                            </div>
-                        `
+                        content: `<div class="content-section"><h4>Overview</h4><p>Before you can legally operate a lash business, you need proper registration and licenses. Requirements vary by state, county, and city.</p></div>`
                     }
                 ]
             },
@@ -610,310 +461,344 @@
                 description: "The hygiene fundamentals that protect your clients, your insurance, and your reputation.",
                 lessons: [
                     {
-                        id: 5,
+                        id: 3,
                         title: "Sterilization Standards & Methods",
                         description: "Understanding autoclave, chemical sterilization, and industry standards.",
                         duration: "15 min",
-                        content: `
-                            <div class="content-section">
-                                <h4>Overview</h4>
-                                <p>Sterilization kills all microorganisms including bacteria, viruses, and spores. This is different from disinfection, which reduces microorganisms but doesn't eliminate all of them.</p>
-                            </div>
-
-                            <div class="content-section">
-                                <h4>Autoclave Sterilization (Recommended)</h4>
-                                <p><strong>How it works:</strong> Uses high heat and pressure to kill all microorganisms.</p>
-                                <ul>
-                                    <li><strong>Temperature:</strong> 250-270°F (121-132°C)</li>
-                                    <li><strong>Time:</strong> 15-30 minutes depending on load size</li>
-                                    <li><strong>Best for:</strong> Tweezers, scissors, non-plastic tools</li>
-                                    <li><strong>Cost:</strong> $200-$800 for a small tabletop autoclave</li>
-                                    <li><strong>Maintenance:</strong> Regular testing and calibration required</li>
-                                </ul>
-                            </div>
-
-                            <div class="content-section">
-                                <h4>Chemical Sterilization</h4>
-                                <p><strong>How it works:</strong> Uses chemical solutions to kill microorganisms.</p>
-                                <ul>
-                                    <li><strong>Types:</strong> Glutaraldehyde or peracetic acid solutions</li>
-                                    <li><strong>Time:</strong> Usually 3-10 hours depending on solution</li>
-                                    <li><strong>Best for:</strong> Plastic items, some metal tools</li>
-                                    <li><strong>Cost:</strong> $30-$100 per quart of solution</li>
-                                    <li><strong>Drawback:</strong> Requires proper ventilation and safety precautions</li>
-                                </ul>
-                            </div>
-
-                            <div class="content-section">
-                                <h4>Industry Standard</h4>
-                                <p>Most professional lash studios use an autoclave as their primary sterilization method. This is the gold standard and expected by insurance companies and health departments.</p>
-                            </div>
-
-                            <div class="content-section">
-                                <h4>Sterilization Protocol</h4>
-                                <ol style="margin-left: 20px;">
-                                    <li>Clean tools with soap and water to remove debris</li>
-                                    <li>Place tools in autoclave bags or container</li>
-                                    <li>Run autoclave cycle according to manufacturer instructions</li>
-                                    <li>Allow to cool completely (at least 30 minutes)</li>
-                                    <li>Store in clean, sealed containers</li>
-                                    <li>Document each sterilization (date, time, temperature)</li>
-                                </ol>
-                            </div>
-                        `
+                        content: `<div class="content-section"><h4>Overview</h4><p>Sterilization kills all microorganisms including bacteria, viruses, and spores.</p></div>`
                     },
                     {
-                        id: 6,
+                        id: 4,
                         title: "Cross-Contamination Prevention",
                         description: "Protocols to prevent spreading infections and pathogens.",
                         duration: "14 min",
-                        content: `
-                            <div class="content-section">
-                                <h4>Overview</h4>
-                                <p>Cross-contamination occurs when pathogens from one client are transmitted to another, or from environment to client. Preventing this is critical for client safety.</p>
-                            </div>
-
-                            <div class="content-section">
-                                <h4>Hand Hygiene</h4>
-                                <ul>
-                                    <li>Wash hands with soap and warm water for at least 20 seconds before each client</li>
-                                    <li>Use hand sanitizer between clients if washing isn't available</li>
-                                    <li>Wear fresh gloves for each client</li>
-                                    <li>Change gloves if they tear or become contaminated</li>
-                                    <li>Remove jewelry that could harbor bacteria</li>
-                                </ul>
-                            </div>
-
-                            <div class="content-section">
-                                <h4>Tool & Equipment Management</h4>
-                                <ul>
-                                    <li>Use only sterilized tools for each client</li>
-                                    <li>Never reuse tweezers, scissors, or applicators between clients</li>
-                                    <li>Store sterilized tools in sealed, clean containers</li>
-                                    <li>Disinfect work surfaces between clients with hospital-grade disinfectant</li>
-                                    <li>Change pillow covers and linens between clients</li>
-                                </ul>
-                            </div>
-
-                            <div class="content-section">
-                                <h4>Personal Hygiene</h4>
-                                <ul>
-                                    <li>Don't apply lashes if you're sick or have visible infections</li>
-                                    <li>Keep your nails clean and trimmed</li>
-                                    <li>Wear clean clothing each day</li>
-                                    <li>If you have a skin condition (warts, fungus), cover it properly</li>
-                                    <li>Avoid touching your face, eyes, or hair during appointments</li>
-                                </ul>
-                            </div>
-
-                            <div class="content-section">
-                                <h4>Client Health Screening</h4>
-                                <ul>
-                                    <li>Screen clients for recent eye infections, conjunctivitis (pink eye), or styes before appointment</li>
-                                    <li>Don't serve clients with active infections</li>
-                                    <li>Ask about recent surgeries or eye procedures</li>
-                                    <li>Document any concerns or refusals</li>
-                                </ul>
-                            </div>
-
-                            <div class="content-section">
-                                <h4>Environment</h4>
-                                <ul>
-                                    <li>Keep your workspace clean and organized</li>
-                                    <li>Disinfect all surfaces daily</li>
-                                    <li>Wash and disinfect waste bins regularly</li>
-                                    <li>Maintain proper ventilation</li>
-                                </ul>
-                            </div>
-                        `
+                        content: `<div class="content-section"><h4>Overview</h4><p>Cross-contamination occurs when pathogens from one client are transmitted to another.</p></div>`
                     },
                     {
-                        id: 7,
+                        id: 5,
                         title: "Health & Safety Regulations",
                         description: "Complying with health department regulations and guidelines.",
                         duration: "13 min",
-                        content: `
-                            <div class="content-section">
-                                <h4>Overview</h4>
-                                <p>Health and safety regulations protect clients and keep you compliant with local laws. These vary by location, so you must know your specific requirements.</p>
-                            </div>
-
-                            <div class="content-section">
-                                <h4>State Regulations</h4>
-                                <ul>
-                                    <li>Check your state's Board of Cosmetology or Health Department website</li>
-                                    <li>Some states have specific lash artist regulations, others don't</li>
-                                    <li>Look for requirements on sterilization, licensing, and sanitation</li>
-                                    <li>Note any continuing education requirements</li>
-                                </ul>
-                            </div>
-
-                            <div class="content-section">
-                                <h4>Local Health Department Inspection</h4>
-                                <p>Your local health department may conduct inspections. Be prepared for:</p>
-                                <ul>
-                                    <li>Sterilization documentation and equipment</li>
-                                    <li>Sanitation practices and supplies</li>
-                                    <li>Client health screening procedures</li>
-                                    <li>Emergency procedures and safety equipment</li>
-                                    <li>Waste disposal methods</li>
-                                </ul>
-                            </div>
-
-                            <div class="content-section">
-                                <h4>OSHA Compliance (If You Have Employees)</h4>
-                                <ul>
-                                    <li>Provide safe working conditions</li>
-                                    <li>Have Material Safety Data Sheets (MSDS) for all chemicals</li>
-                                    <li>Document any workplace injuries</li>
-                                    <li>Provide proper training and equipment</li>
-                                </ul>
-                            </div>
-
-                            <div class="content-section">
-                                <h4>Common Violation Areas</h4>
-                                <ul>
-                                    <li>Dirty or improperly stored tools</li>
-                                    <li>No sterilization equipment or documentation</li>
-                                    <li>Inadequate hand washing facilities</li>
-                                    <li>Clients with contraindications being served</li>
-                                    <li>Missing or expired certifications</li>
-                                </ul>
-                            </div>
-
-                            <div class="content-section">
-                                <h4>Best Practice</h4>
-                                <p>Go above and beyond minimum requirements. Exceeding regulations builds client trust and protects you legally.</p>
-                            </div>
-                        `
+                        content: `<div class="content-section"><h4>Overview</h4><p>Health and safety regulations protect clients and keep you compliant with local laws.</p></div>`
                     },
                     {
-                        id: 8,
+                        id: 6,
                         title: "Client Health Screening",
                         description: "Safe screening practices to identify contraindications.",
                         duration: "12 min",
+                        content: `<div class="content-section"><h4>Overview</h4><p>Health screening identifies conditions where lash extensions may be unsafe.</p></div>`
+                    },
+                    {
+                        id: 7,
+                        title: "Renting vs. Owning – What You Need to Know",
+                        description: "Home-based and commercial workspace insurance requirements.",
+                        duration: "14 min",
                         content: `
                             <div class="content-section">
-                                <h4>Overview</h4>
-                                <p>Health screening identifies conditions where lash extensions may be unsafe. This protects clients and protects you legally.</p>
-                            </div>
-
-                            <div class="content-section">
-                                <h4>Before Every Appointment</h4>
-                                <p>Ask clients about:</p>
+                                <h4>1. Home-based Lash Businesses</h4>
+                                <p><strong>If you're working from a spare room or home salon:</strong></p>
                                 <ul>
-                                    <li>Current eye infections, conjunctivitis, or styes</li>
-                                    <li>Recent eye surgery or procedures</li>
-                                    <li>Eyelid inflammation or irritation</li>
-                                    <li>Allergies to adhesive or other products</li>
-                                    <li>Current medications affecting eyes</li>
-                                    <li>Skin conditions on eyelids</li>
+                                    <li><strong>Landlord approval (if renting):</strong>
+                                        <ul>
+                                            <li>Always check your lease. Most rentals require written permission before running a business.</li>
+                                            <li>Some landlords may want proof of your insurance before granting approval.</li>
+                                            <li>Tip: Frame it as "low impact" (no heavy foot traffic, no signage on house, minimal noise).</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>If you own your home:</strong>
+                                        <ul>
+                                            <li>Still notify your home insurer. Standard home insurance often won't cover business activity without a business add-on.</li>
+                                            <li>Ask about "home-based business cover."</li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </div>
 
                             <div class="content-section">
-                                <h4>Red Flags - Refuse Service</h4>
-                                <p>Don't apply lashes if client has:</p>
+                                <h4>2. Commercial or Studio Spaces</h4>
+                                <p><strong>If leasing a shopfront or salon room:</strong></p>
                                 <ul>
-                                    <li>Active eye infection (pink eye, stye, chalazion)</li>
-                                    <li>Recent eye surgery (within 2-4 weeks)</li>
-                                    <li>Severe eyelid inflammation</li>
-                                    <li>Known allergy to cyanoacrylate adhesive</li>
-                                    <li>Severe dry eyes or eye disease</li>
-                                    <li>Obvious signs of infection</li>
+                                    <li>The landlord's insurance does not cover your business — only the building.</li>
+                                    <li>You are responsible for your:
+                                        <ul>
+                                            <li>Public Liability Insurance (clients tripping, accidents).</li>
+                                            <li>Professional Indemnity (claims from allergic reactions, eye irritation).</li>
+                                            <li>Contents Cover (lash bed, stock, lights, tools).</li>
+                                        </ul>
+                                    </li>
+                                    <li>The lease may require you to show a Certificate of Currency from your insurer before signing.</li>
                                 </ul>
                             </div>
 
                             <div class="content-section">
-                                <h4>Proceed With Caution</h4>
+                                <h4>3. What to Ask Your Landlord or Insurer</h4>
                                 <ul>
-                                    <li>Sensitive eyes - use hypoallergenic adhesive, lighter extensions</li>
-                                    <li>Sparse natural lashes - discuss realistic expectations</li>
-                                    <li>Very oily skin - may affect retention</li>
-                                    <li>History of allergic reactions - patch test first</li>
+                                    <li><strong>If renting:</strong>
+                                        <ul>
+                                            <li>"Do I have approval to operate a beauty business from this property?"</li>
+                                            <li>"Does the landlord's insurance require me to have additional cover?"</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>If owning:</strong>
+                                        <ul>
+                                            <li>"Does my home insurance still cover me while running a business here?"</li>
+                                            <li>"Do I need to add home-based business insurance?"</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="callout-box">
+                                <strong>⚠️ Action Steps:</strong>
+                                <ol>
+                                    <li>Check your lease or mortgage terms.</li>
+                                    <li>Contact landlord (if renting) — request written approval.</li>
+                                    <li>Contact home/commercial insurer — disclose beauty business activity.</li>
+                                    <li>Get at least 1 insurance quote tailored for lash/beauty professionals.</li>
+                                </ol>
+                            </div>
+
+                            <div class="example-box">
+                                <strong>💡 Pro Tip:</strong> On your website or policies page, include a line like: "This business is fully insured with Public Liability and Professional Indemnity cover. Certificate of Currency available on request." This builds client trust and shows professionalism.
+                            </div>
+                        `
+                    }
+                ]
+            },
+            {
+                id: 3,
+                title: "Business Banking & Financials",
+                description: "Setting up the financial side of your business so it runs cleanly.",
+                lessons: [
+                    {
+                        id: 8,
+                        title: "Business Bank Account Setup",
+                        description: "Separating personal and business finances.",
+                        duration: "12 min",
+                        content: `<div class="content-section"><h4>Overview</h4><p>Keeping business and personal finances separate is essential for accounting, taxes, and professionalism.</p></div>`
+                    },
+                    {
+                        id: 9,
+                        title: "Claiming Your Lash Room at Home – The Capital Gains Trap",
+                        description: "Understanding tax deductions and capital gains implications.",
+                        duration: "16 min",
+                        content: `
+                            <div class="content-section">
+                                <h4>1. How Home Deductions Work</h4>
+                                <p>If you own your home and run your lash business from it, you can sometimes claim part of your:</p>
+                                <ul>
+                                    <li>Electricity & internet</li>
+                                    <li>Rent/mortgage interest</li>
+                                    <li>Cleaning & maintenance</li>
+                                    <li>Depreciation (furniture, lash bed, lighting, aircon)</li>
+                                </ul>
+                                <p>The claim is usually calculated based on the percentage of your home's floor space used as the business area.</p>
+                            </div>
+
+                            <div class="content-section">
+                                <h4>2. The Catch – Capital Gains Tax (CGT)</h4>
+                                <p>Normally, when you sell your main residence, you don't pay capital gains tax (CGT).</p>
+                                <p><strong>BUT</strong> if you've claimed a dedicated space (like your lash room) as a tax deduction:</p>
+                                <ul>
+                                    <li>That percentage of your home may lose the CGT exemption.</li>
+                                    <li><strong>Example:</strong> If your lash room is 10% of your house, and you sell the property later with $100K profit, you could be taxed on $10K of it.</li>
                                 </ul>
                             </div>
 
                             <div class="content-section">
-                                <h4>Documentation</h4>
+                                <h4>3. Ways Lash Techs Can Handle This</h4>
                                 <ul>
-                                    <li>Have a written health screening form</li>
-                                    <li>Have clients sign it before service</li>
-                                    <li>Keep forms for at least 3 years</li>
-                                    <li>Document any concerns or special accommodations</li>
-                                    <li>This protects you if complications arise</li>
+                                    <li><strong>Option A:</strong> Claim smaller running costs only (electricity, internet) instead of a set area.</li>
+                                    <li><strong>Option B:</strong> Claim nothing for the space itself, to keep your full CGT exemption later.</li>
+                                    <li><strong>Option C:</strong> Get professional advice — an accountant can run the numbers for you.</li>
                                 </ul>
                             </div>
 
                             <div class="content-section">
-                                <h4>Communication</h4>
-                                <p>If you decline service, explain politely and professionally. Suggest they consult an ophthalmologist if needed. Offer to reschedule once the issue resolves.</p>
+                                <h4>4. What Accountants Recommend (for beginners)</h4>
+                                <ul>
+                                    <li>Don't overclaim your lash space unless you plan to stay in that property long-term.</li>
+                                    <li>Keep receipts for all lash supplies (these are clean deductions with no CGT effect).</li>
+                                    <li>Set aside 25–30% of lash income for tax, to avoid EOFY surprises.</li>
+                                </ul>
+                            </div>
+
+                            <div class="callout-box">
+                                <strong>⚠️ Key Takeaway:</strong> Claiming part of your home for business = tax benefit now but potential capital gains hit later. Make the choice intentionally.
                             </div>
                         `
                     },
                     {
-                        id: 9,
-                        title: "Documentation & Records",
-                        description: "Keeping proper records for compliance and liability protection.",
-                        duration: "11 min",
+                        id: 10,
+                        title: "Understanding Deductions Properly",
+                        description: "How deductions reduce taxable income, not your tax bill directly.",
+                        duration: "15 min",
                         content: `
                             <div class="content-section">
-                                <h4>Overview</h4>
-                                <p>Good record-keeping is your legal protection. If something goes wrong, documentation proves you followed proper procedures.</p>
+                                <h4>1. What Deductions Actually Do</h4>
+                                <p>Deductions reduce your taxable income, not your tax bill directly.</p>
+                                <div class="example-box">
+                                    <strong>Example:</strong>
+                                    <ul>
+                                        <li>Your lash business earns $50,000.</li>
+                                        <li>You spend $5,000 on products, rent, and tools.</li>
+                                        <li>Your taxable income = $45,000.</li>
+                                        <li>You only pay tax on $45K, not $50K.</li>
+                                    </ul>
+                                </div>
                             </div>
 
                             <div class="content-section">
-                                <h4>Client Records to Keep</h4>
+                                <h4>2. Why This Matters</h4>
                                 <ul>
-                                    <li><strong>Contact Information:</strong> Name, phone, email, address</li>
-                                    <li><strong>Health Screening Form:</strong> Signed before each appointment</li>
-                                    <li><strong>Allergies & Sensitivities:</strong> Documented and flagged</li>
-                                    <li><strong>Appointment History:</strong> Dates, services, pricing</li>
-                                    <li><strong>Products Used:</strong> Lash brand/type, adhesive, aftercare products</li>
-                                    <li><strong>Before/After Photos:</strong> Document results</li>
-                                    <li><strong>Notes:</strong> Special requests, concerns, complications</li>
+                                    <li>If you're in the 20% tax bracket, a $1,000 deduction saves you about $200 in tax (not $1,000).</li>
+                                    <li>So: you don't spend money just to "get a deduction."</li>
+                                    <li>Only spend on things that genuinely help your business.</li>
                                 </ul>
                             </div>
 
                             <div class="content-section">
-                                <h4>Business Records to Keep</h4>
+                                <h4>3. Common Lash Artist Deductions</h4>
                                 <ul>
-                                    <li><strong>Sterilization Log:</strong> Date, time, temperature, equipment used</li>
-                                    <li><strong>Inventory Log:</strong> Products purchased, quantities, suppliers</li>
-                                    <li><strong>Financial Records:</strong> Income, expenses, tax deductions</li>
-                                    <li><strong>Insurance Documents:</strong> Policies and coverage details</li>
-                                    <li><strong>Licenses & Certifications:</strong> Copies and renewal dates</li>
-                                    <li><strong>Accident Reports:</strong> Any incidents or complications</li>
-                                    <li><strong>Staff Records:</strong> If you employ others</li>
+                                    <li>Lash supplies (glue, lashes, tweezers, pads)</li>
+                                    <li>Furniture & equipment (lash bed, trolley, lighting)</li>
+                                    <li>Training & education</li>
+                                    <li>Insurance</li>
+                                    <li>Booking software or website costs</li>
+                                    <li>Marketing (Canva Pro, ads, business cards)</li>
+                                    <li>Proportion of phone/internet, electricity</li>
                                 </ul>
                             </div>
 
                             <div class="content-section">
-                                <h4>How Long to Keep Records</h4>
+                                <h4>4. What Not to Do</h4>
                                 <ul>
-                                    <li>Client health forms: At least 3 years (check your state)</li>
-                                    <li>Financial records: 7 years (for tax purposes)</li>
-                                    <li>Sterilization logs: 3 years minimum</li>
-                                    <li>Insurance claims/incidents: At least 7 years</li>
+                                    <li>Don't buy unnecessary stock just to "get a deduction."</li>
+                                    <li>Don't claim personal expenses as business — the ATO checks.</li>
+                                </ul>
+                            </div>
+
+                            <div class="callout-box">
+                                <strong>📝 Student Activity:</strong> Which items are claimable?
+                                <ul>
+                                    <li>Lash glue (✅ Yes)</li>
+                                    <li>Netflix subscription (❌ No)</li>
+                                    <li>Phone bill (✅ Yes – portion only if used for clients)</li>
+                                    <li>Personal makeup (❌ unless used exclusively for demonstrations)</li>
+                                </ul>
+                            </div>
+                        `
+                    },
+                    {
+                        id: 11,
+                        title: "The Truth About Tax Deductions",
+                        description: "Why deductions don't give refunds unless you owe tax.",
+                        duration: "14 min",
+                        content: `
+                            <div class="content-section">
+                                <h4>1. The Myth</h4>
+                                <p>Many new lash artists think: "If I buy something for my business, the tax office will give me money back."</p>
+                                <p><strong>Reality:</strong> You only get a benefit if you actually owe tax.</p>
+                            </div>
+
+                            <div class="content-section">
+                                <h4>2. How It Really Works</h4>
+                                <p>Deductions reduce your taxable income → which reduces your tax bill.</p>
+                                <p>If you're under the tax-free threshold ($18,200) or already paying $0 tax, deductions won't give you a refund.</p>
+                                <div class="example-box">
+                                    <strong>Example A – You owe tax:</strong>
+                                    <ul>
+                                        <li>Earn $50,000 → tax owed approx. $6,700.</li>
+                                        <li>Claim $5,000 deductions → taxable income = $45,000.</li>
+                                        <li>Tax now approx. $5,200 → you save $1,500.</li>
+                                    </ul>
+                                </div>
+                                <div class="example-box">
+                                    <strong>Example B – You don't owe tax:</strong>
+                                    <ul>
+                                        <li>Earn $15,000 (under tax-free threshold).</li>
+                                        <li>Claim $2,000 deductions → taxable income = $13,000.</li>
+                                        <li>Tax bill is still $0.</li>
+                                        <li>💡 You don't get cash "back" because no tax was paid in the first place.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="content-section">
+                                <h4>3. Key Rule for Students</h4>
+                                <div class="callout-box">
+                                    <strong>⚡ "Deductions don't create refunds out of thin air. They only reduce the tax you actually owe."</strong>
+                                </div>
+                            </div>
+
+                            <div class="content-section">
+                                <h4>4. Mini Quiz Worksheet</h4>
+                                <ul>
+                                    <li><strong>Q1:</strong> If you make $12,000 in lash income, can deductions give you money back? (Answer: No).</li>
+                                    <li><strong>Q2:</strong> If you make $45,000, how does a $1,000 deduction affect you? (Answer: It reduces taxable income, saving ~$200–$300 depending on your tax bracket).</li>
+                                    <li><strong>Q3:</strong> Should you buy unnecessary supplies at EOFY just for "tax benefits"? (Answer: No).</li>
+                                </ul>
+                            </div>
+                        `
+                    },
+                    {
+                        id: 12,
+                        title: "Centrelink & Profit and Loss Reporting",
+                        description: "Meeting Centrelink requirements when running a lash business.",
+                        duration: "17 min",
+                        content: `
+                            <div class="content-section">
+                                <h4>1. Why Centrelink Needs This</h4>
+                                <p>If you get a Centrelink payment and run a business (sole trader with an ABN), Centrelink doesn't just look at your total sales.</p>
+                                <p>They look at your profit (income minus expenses).</p>
+                                <p>That's why you must give them a profit and loss statement (P&L) every 3 months (quarterly).</p>
+                            </div>
+
+                            <div class="content-section">
+                                <h4>2. What's in a Profit & Loss Statement?</h4>
+                                <ul>
+                                    <li><strong>Income:</strong> what your clients pay you.</li>
+                                    <li><strong>Expenses:</strong> business costs (lash supplies, insurance, booking software, etc.).</li>
+                                    <li><strong>Profit:</strong> what's left after expenses.</li>
+                                </ul>
+                                <p>👉 This profit is what Centrelink uses to work out how much payment you're entitled to.</p>
+                            </div>
+
+                            <div class="content-section">
+                                <h4>3. Example</h4>
+                                <div class="example-box">
+                                    <ul>
+                                        <li>Quarterly income: $5,000 from lash clients.</li>
+                                        <li>Expenses: $2,000 (glue, lashes, insurance, electricity).</li>
+                                        <li>Profit: $3,000.</li>
+                                        <li>Centrelink will treat that $3,000 as your business income for the quarter (split across the 3 months).</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="content-section">
+                                <h4>4. Why This Matters</h4>
+                                <ul>
+                                    <li>If you don't lodge your P&L on time, Centrelink may suspend payments.</li>
+                                    <li>If you under-report, you can get an overpayment and debt.</li>
+                                    <li>If you over-report, you could miss out on money you're entitled to.</li>
                                 </ul>
                             </div>
 
                             <div class="content-section">
-                                <h4>Digital vs. Paper</h4>
-                                <ul>
-                                    <li><strong>Digital:</strong> Easier to organize, backup important, secure password protection needed</li>
-                                    <li><strong>Paper:</strong> Simple, tangible, must store securely, takes up space</li>
-                                    <li><strong>Best Practice:</strong> Hybrid approach - digital with paper backups for legal documents</li>
-                                </ul>
+                                <h4>5. Key Takeaway for Students</h4>
+                                <div class="callout-box">
+                                    <strong>⚠️ "If you're on Centrelink, you must keep receipts and track income/expenses from Day 1 — because every quarter you'll need a profit & loss statement. This protects your payment, keeps you compliant, and avoids future debts."</strong>
+                                </div>
                             </div>
 
                             <div class="content-section">
-                                <h4>Privacy & Confidentiality</h4>
+                                <h4>6. Quick Setup</h4>
                                 <ul>
-                                    <li>Keep all client information confidential</li>
-                                    <li>Store records securely (locked file cabinet or password-protected digital files)</li>
-                                    <li>Only share information with permission or when legally required</li>
-                                    <li>Consider privacy laws in your area (HIPAA, GDPR, state privacy laws)</li>
+                                    <li>Get a spreadsheet template (we provide one in course resources)</li>
+                                    <li>Columns: Date | Income | Expense | Category | Notes</li>
+                                    <li>Auto-totals quarterly profit</li>
+                                    <li>Easy to share with Centrelink</li>
                                 </ul>
                             </div>
                         `
@@ -921,9 +806,6 @@
                 ]
             }
         ];
-
-        // Continue with remaining modules...
-        // For brevity, showing first 2 modules. Each additional module follows same structure.
 
         let completedLessons = {};
 
@@ -1013,6 +895,7 @@
 
             const checkbox = lessonDiv.querySelector('.lesson-checkbox');
             checkbox.addEventListener('change', (e) => {
+                e.stopPropagation();
                 const lessonId = `lesson-${e.target.getAttribute('data-lesson-id')}`;
                 if (e.target.checked) {
                     completedLessons[lessonId] = true;
