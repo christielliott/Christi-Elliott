@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Lash Course - Christi Elliott</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .course-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .course-progress {
+            margin: 30px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            color: white;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4CAF50, #45a049);
+            width: 0%;
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .modules {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .module {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .module:hover {
+            border-color: #667eea;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .module-header {
+            padding: 20px;
+            background: #f5f5f5;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .module-header:hover {
+            background: #efefef;
+        }
+
+        .module-header.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .module-title {
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-grow: 1;
+        }
+
+        .module-progress {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-right: 15px;
+        }
+
+        .module-toggle {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .module.open .module-toggle {
+            transform: rotate(180deg);
+        }
+
+        .module-content {
+            display: none;
+            padding: 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .module.open .module-content {
+            display: block;
+            max-height: 2000px;
+        }
+
+        .lessons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .lesson {
+            padding: 15px;
+            background: #f9f9f9;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .lesson.completed {
+            background: #e8f5e9;
+            border-left-color: #4CAF50;
+        }
+
+        .lesson-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .lesson-checkbox {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: #667eea;
+        }
+
+        .lesson-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .lesson-time {
+            font-size: 12px;
+            color: #999;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .quiz-section {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            border-radius: 5px;
+        }
+
+        .quiz-question {
+            margin: 15px 0;
+            font-weight: 500;
+        }
+
+        .quiz-option {
+            margin: 8px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-option:hover {
+            border-color: #667eea;
+        }
+
+        .quiz-option input {
+            margin-right: 8px;
+            accent-color: #667eea;
+        }
+
+        .testimonials {
+            margin-top: 40px;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 10px;
+        }
+
+        .testimonial {
+            margin: 15px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 5px;
+            border-left: 4px solid #667eea;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .course-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-box {
+            padding: 15px;
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .certification-btn {
+            margin-top: 20px;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            width: 100%;
+            text-align: center;
+        }
+
+        .certification-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .certification-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Christi Elliott</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="course.html" class="active">Lash Course</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>Professional Lash Business Course</h1>
+            <p>Master the complete business side of lash artistry with our comprehensive 16-module course</p>
+        </div>
+    </header>
+
+    <section class="portfolio course-container">
+        <div class="container">
+            <div class="course-progress">
+                <h3>Your Progress</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill">0%</div>
+                </div>
+                <div id="progressText">0 of 0 lessons completed</div>
+            </div>
+
+            <div class="course-stats">
+                <div class="stat-box">
+                    <div class="stat-number" id="modulesCompleted">0</div>
+                    <div class="stat-label">Modules Completed</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" id="lessonsCompleted">0</div>
+                    <div class="stat-label">Lessons Completed</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">16</div>
+                    <div class="stat-label">Total Modules</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" id="totalLessons">0</div>
+                    <div class="stat-label">Total Lessons</div>
+                </div>
+            </div>
+
+            <div class="modules" id="modules"></div>
+
+            <button class="certification-btn" id="certificationBtn" disabled>
+                Get Your Completion Certificate
+            </button>
+
+            <div class="testimonials">
+                <h2>Student Success Stories</h2>
+                <div class="testimonial">
+                    <p class="testimonial-text">"This course gave me the confidence to launch my lash business professionally. The business modules were invaluable!"</p>
+                    <p class="testimonial-author">- Jessica R.</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"I learned more about the technical side and business management than I expected. Highly recommend!"</p>
+                    <p class="testimonial-author">- Amanda T.</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"The compliance and safety modules helped me set up my business correctly from day one. Worth every penny!"</p>
+                    <p class="testimonial-author">- Sarah M.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Christi Elliott. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="contact.html">Contact</a>
+                <a href="#privacy">Privacy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const courseData = [
+            {
+                id: 1,
+                title: "Business Foundations",
+                description: "Setting up your lash business legally and properly.",
+                lessons: [
+                    { id: 1, title: "Choosing Your Business Structure", description: "Sole proprietor, LLC, or corporation — understanding the pros and cons of each.", duration: "18 min" },
+                    { id: 2, title: "Business Registration & Licenses", description: "Navigate the legal requirements and registrations needed in your area.", duration: "16 min" },
+                    { id: 3, title: "Business Insurance Essentials", description: "What insurance you need and how to choose the right coverage.", duration: "14 min" },
+                    { id: 4, title: "Setting Up Your Workspace", description: "Creating a legal, compliant workspace for lash application.", duration: "12 min" }
+                ]
+            },
+            {
+                id: 2,
+                title: "Hygiene & Sterilisation",
+                description: "The hygiene fundamentals that protect your clients, your insurance, and your reputation.",
+                lessons: [
+                    { id: 5, title: "Sterilization Standards & Methods", description: "Understanding autoclave, chemical sterilization, and industry standards.", duration: "15 min" },
+                    { id: 6, title: "Cross-Contamination Prevention", description: "Protocols to prevent spreading infections and pathogens.", duration: "14 min" },
+                    { id: 7, title: "Health & Safety Regulations", description: "Complying with health department regulations and guidelines.", duration: "13 min" },
+                    { id: 8, title: "Client Health Screening", description: "Safe screening practices to identify contraindications.", duration: "12 min" },
+                    { id: 9, title: "Documentation & Records", description: "Keeping proper records for compliance and liability protection.", duration: "11 min" }
+                ]
+            },
+            {
+                id: 3,
+                title: "Adhesive Science",
+                description: "Understanding the chemistry behind lash glue so you can troubleshoot like a pro.",
+                lessons: [
+                    { id: 10, title: "Adhesive Chemistry Basics", description: "How cyanoacrylate bonds form and cure.", duration: "16 min" },
+                    { id: 11, title: "Viscosity & Consistency", description: "How to select the right adhesive viscosity for your technique.", duration: "14 min" },
+                    { id: 12, title: "Environmental Factors & Retention", description: "How humidity, temperature, and airflow affect adhesive performance.", duration: "15 min" },
+                    { id: 13, title: "Adhesive Troubleshooting", description: "Common adhesive problems and how to solve them.", duration: "14 min" },
+                    { id: 14, title: "Storage & Shelf Life", description: "Proper storage methods to maximize adhesive lifespan.", duration: "10 min" }
+                ]
+            },
+            {
+                id: 4,
+                title: "Lash Weights & Safety",
+                description: "Choosing diameters and styles that protect natural lashes.",
+                lessons: [
+                    { id: 15, title: "Lash Diameter Guide", description: "Understanding diameters (0.03, 0.05, 0.07, 0.10, 0.12mm) and their impact.", duration: "14 min" },
+                    { id: 16, title: "Weight Calculation & Ratios", description: "Calculating safe weight ratios to protect natural lashes.", duration: "15 min" },
+                    { id: 17, title: "Lash Styles & Effects", description: "Different curl patterns and their characteristics.", duration: "12 min" },
+                    { id: 18, title: "Natural Lash Health", description: "Recognizing unhealthy lashes and when to refuse service.", duration: "13 min" }
+                ]
+            },
+            {
+                id: 5,
+                title: "Lash Application Basics",
+                description: "The technique fundamentals every lash artist needs to nail.",
+                lessons: [
+                    { id: 19, title: "The Isolation Technique", description: "Mastering isolation — the foundation of perfect application.", duration: "18 min" },
+                    { id: 20, title: "Lash Mapping & Design", description: "Creating customized lash maps for different eye shapes.", duration: "16 min" },
+                    { id: 21, title: "Adhesive Application", description: "Proper adhesive placement and drop sizing techniques.", duration: "14 min" },
+                    { id: 22, title: "Classic vs. Volume Application", description: "Techniques for classic single lashes and volume fans.", duration: "15 min" },
+                    { id: 23, title: "Placement & Angle", description: "Achieving consistent placement and angle for natural results.", duration: "13 min" }
+                ]
+            },
+            {
+                id: 6,
+                title: "Lash Cycle & Infills",
+                description: "The biology of the natural lash cycle and how it shapes your appointments.",
+                lessons: [
+                    { id: 24, title: "Natural Lash Growth Cycle", description: "Understanding anagen, catagen, and telogen phases.", duration: "14 min" },
+                    { id: 25, title: "Retention & Shedding", description: "Why lashes shed and realistic retention expectations.", duration: "13 min" },
+                    { id: 26, title: "Infill Appointment Planning", description: "Scheduling and managing infill appointments effectively.", duration: "15 min" },
+                    { id: 27, title: "Infill Techniques", description: "Best practices for infill applications and maintenance.", duration: "14 min" }
+                ]
+            },
+            {
+                id: 7,
+                title: "Environment Mastery",
+                description: "Controlling humidity, temperature and airflow for consistent retention.",
+                lessons: [
+                    { id: 28, title: "Humidity Control", description: "Optimal humidity ranges and how to maintain them.", duration: "13 min" },
+                    { id: 29, title: "Temperature Management", description: "Room temperature effects on adhesive and client comfort.", duration: "12 min" },
+                    { id: 30, title: "Air Quality & Ventilation", description: "Preventing fumes and maintaining air quality.", duration: "12 min" },
+                    { id: 31, title: "Environmental Monitoring", description: "Tools and methods to track and adjust environmental conditions.", duration: "11 min" }
+                ]
+            },
+            {
+                id: 8,
+                title: "Business Banking & Financials",
+                description: "Setting up the financial side of your business so it runs cleanly.",
+                lessons: [
+                    { id: 32, title: "Business Bank Account Setup", description: "Separating personal and business finances.", duration: "12 min" },
+                    { id: 33, title: "Accounting Basics", description: "Income, expenses, and keeping clean financial records.", duration: "15 min" },
+                    { id: 34, title: "Pricing Your Services", description: "Formula-based pricing that covers costs and profit.", duration: "14 min" },
+                    { id: 35, title: "Tax Planning", description: "Quarterly taxes, deductions, and tax planning strategies.", duration: "16 min" },
+                    { id: 36, title: "Profit Margins & Growth", description: "Analyzing profitability and scaling your business.", duration: "13 min" }
+                ]
+            },
+            {
+                id: 9,
+                title: "Booking & Payments",
+                description: "Setting up the systems that handle bookings, deposits, and payments.",
+                lessons: [
+                    { id: 37, title: "Booking System Selection", description: "Choosing the right booking software for your business.", duration: "13 min" },
+                    { id: 38, title: "Deposit & Payment Policies", description: "Setting clear policies that protect your business.", duration: "12 min" },
+                    { id: 39, title: "Payment Processing", description: "Accepting cards, transfers, and other payment methods.", duration: "14 min" },
+                    { id: 40, title: "Managing Cancellations", description: "Handling no-shows and cancellations professionally.", duration: "11 min" }
+                ]
+            },
+            {
+                id: 10,
+                title: "Compliance & Safety (Advanced)",
+                description: "Going beyond the basics — pricing, hygiene, product safety and unregulated risks.",
+                lessons: [
+                    { id: 41, title: "State & Local Regulations", description: "Understanding regulations that apply to your specific location.", duration: "15 min" },
+                    { id: 42, title: "Product Safety & Certification", description: "Ensuring all products meet safety standards and regulations.", duration: "13 min" },
+                    { id: 43, title: "Liability & Legal Risks", description: "Understanding and mitigating legal exposure.", duration: "14 min" },
+                    { id: 44, title: "Documentation Best Practices", description: "Maintaining records that protect you legally.", duration: "12 min" }
+                ]
+            },
+            {
+                id: 11,
+                title: "Marketing Strategies",
+                description: "Building a marketing system that brings in the right clients consistently.",
+                lessons: [
+                    { id: 45, title: "Brand Development", description: "Creating a unique brand identity for your lash business.", duration: "15 min" },
+                    { id: 46, title: "Social Media Strategy", description: "Building an effective social media presence.", duration: "14 min" },
+                    { id: 47, title: "Content Creation", description: "Creating content that showcases your work and expertise.", duration: "13 min" },
+                    { id: 48, title: "SEO & Local Visibility", description: "Getting found by local clients searching for lash services.", duration: "12 min" },
+                    { id: 49, title: "Referral Programs", description: "Building a referral system that generates new clients.", duration: "12 min" }
+                ]
+            },
+            {
+                id: 12,
+                title: "Client Care & Aftercare",
+                description: "Looking after clients beyond the appointment itself.",
+                lessons: [
+                    { id: 50, title: "Aftercare Instructions", description: "Detailed aftercare guidance that extends lash retention.", duration: "14 min" },
+                    { id: 51, title: "Client Communication", description: "Clear, consistent communication with clients.", duration: "13 min" },
+                    { id: 52, title: "Handling Issues & Complaints", description: "Professional resolution of client problems.", duration: "14 min" },
+                    { id: 53, title: "Follow-up Systems", description: "Automated systems to keep clients engaged and returning.", duration: "12 min" }
+                ]
+            },
+            {
+                id: 13,
+                title: "Advanced Marketing Tools",
+                description: "Going beyond the basics with paid ads, referrals, and loyalty systems.",
+                lessons: [
+                    { id: 54, title: "Paid Advertising", description: "Running effective Facebook and Instagram ad campaigns.", duration: "15 min" },
+                    { id: 55, title: "Email Marketing", description: "Building an email list and sending effective campaigns.", duration: "14 min" },
+                    { id: 56, title: "Loyalty Programs", description: "Creating loyalty systems that increase client lifetime value.", duration: "13 min" },
+                    { id: 57, title: "Analytics & Optimization", description: "Measuring results and optimizing your marketing.", duration: "12 min" }
+                ]
+            },
+            {
+                id: 14,
+                title: "Client Relationship Management",
+                description: "Handling the human side of your business — expectations, complaints, and loyalty.",
+                lessons: [
+                    { id: 58, title: "Consultation Skills", description: "Conducting consultations that set proper expectations.", duration: "13 min" },
+                    { id: 59, title: "Managing Expectations", description: "Clear communication about results, timelines, and care.", duration: "12 min" },
+                    { id: 60, title: "Building Loyalty", description: "Creating clients who return regularly and refer others.", duration: "13 min" },
+                    { id: 61, title: "Conflict Resolution", description: "Handling disagreements and complaints professionally.", duration: "12 min" }
+                ]
+            },
+            {
+                id: 15,
+                title: "Resources & Supplies",
+                description: "Choosing, sourcing, and managing the products that run your business.",
+                lessons: [
+                    { id: 62, title: "Sourcing Quality Products", description: "Finding reliable suppliers for lashes, adhesives, and tools.", duration: "13 min" },
+                    { id: 63, title: "Inventory Management", description: "Stock levels, ordering systems, and cost control.", duration: "14 min" },
+                    { id: 64, title: "Product Quality Standards", description: "Evaluating and comparing products for quality.", duration: "12 min" },
+                    { id: 65, title: "Retail & Resale", description: "Selling products to clients for additional revenue.", duration: "11 min" }
+                ]
+            },
+            {
+                id: 16,
+                title: "Wrapping Up",
+                description: "Finishing the course strong and planning your next steps.",
+                lessons: [
+                    { id: 66, title: "Your Lash Business Roadmap", description: "Creating a 90-day action plan to launch or grow your business.", duration: "16 min" },
+                    { id: 67, title: "Continuing Education", description: "Staying current with industry trends and skills.", duration: "12 min" },
+                    { id: 68, title: "Building Your Support Network", description: "Finding mentors, communities, and resources.", duration: "11 min" },
+                    { id: 69, title: "Course Reflection & Next Steps", description: "Final thoughts and your journey forward.", duration: "10 min" }
+                ]
+            }
+        ];
+
+        let completedLessons = {};
+
+        function initializeCourse() {
+            const modulesContainer = document.getElementById('modules');
+            const totalLessons = courseData.reduce((sum, m) => sum + m.lessons.length, 0);
+            document.getElementById('totalLessons').textContent = totalLessons;
+
+            courseData.forEach(module => {
+                const moduleEl = createModuleElement(module);
+                modulesContainer.appendChild(moduleEl);
+            });
+
+            updateProgress();
+        }
+
+        function createModuleElement(module) {
+            const moduleDiv = document.createElement('div');
+            moduleDiv.className = 'module';
+            moduleDiv.setAttribute('data-module-id', module.id);
+
+            const header = document.createElement('div');
+            header.className = 'module-header';
+            header.innerHTML = `
+                <div class="module-title">
+                    <span>Module ${module.id}</span>
+                    <div>
+                        <strong>${module.title}</strong>
+                        <div style="font-size: 12px; font-weight: normal; opacity: 0.9; margin-top: 3px;">${module.description}</div>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 15px; white-space: nowrap;">
+                    <span class="module-progress" id="progress-${module.id}">0/${module.lessons.length}</span>
+                    <span class="module-toggle">▼</span>
+                </div>
+            `;
+
+            header.addEventListener('click', () => {
+                moduleDiv.classList.toggle('open');
+                header.classList.toggle('active');
+            });
+
+            const content = document.createElement('div');
+            content.className = 'module-content';
+
+            const lessonsDiv = document.createElement('div');
+            lessonsDiv.className = 'lessons';
+
+            module.lessons.forEach(lesson => {
+                const lessonEl = createLessonElement(lesson, module.id);
+                lessonsDiv.appendChild(lessonEl);
+            });
+
+            content.appendChild(lessonsDiv);
+            moduleDiv.appendChild(header);
+            moduleDiv.appendChild(content);
+
+            return moduleDiv;
+        }
+
+        function createLessonElement(lesson, moduleId) {
+            const lessonDiv = document.createElement('div');
+            lessonDiv.className = 'lesson';
+            lessonDiv.setAttribute('data-lesson-id', lesson.id);
+
+            const lessonId = `lesson-${lesson.id}`;
+            const isCompleted = completedLessons[lessonId];
+
+            if (isCompleted) {
+                lessonDiv.classList.add('completed');
+            }
+
+            lessonDiv.innerHTML = `
+                <div class="lesson-title">
+                    <input type="checkbox" class="lesson-checkbox" data-lesson-id="${lesson.id}" data-module-id="${moduleId}" ${isCompleted ? 'checked' : ''}>
+                    <span>${lesson.title}</span>
+                </div>
+                <p class="lesson-description">${lesson.description}</p>
+                <span class="lesson-time">⏱️ ${lesson.duration}</span>
+            `;
+
+            const checkbox = lessonDiv.querySelector('.lesson-checkbox');
+            checkbox.addEventListener('change', (e) => {
+                const lessonId = `lesson-${e.target.getAttribute('data-lesson-id')}`;
+                if (e.target.checked) {
+                    completedLessons[lessonId] = true;
+                    lessonDiv.classList.add('completed');
+                } else {
+                    delete completedLessons[lessonId];
+                    lessonDiv.classList.remove('completed');
+                }
+                updateProgress();
+                saveProgress();
+            });
+
+            return lessonDiv;
+        }
+
+        function updateProgress() {
+            const totalLessons = courseData.reduce((sum, m) => sum + m.lessons.length, 0);
+            const completedCount = Object.keys(completedLessons).length;
+
+            const percentage = totalLessons > 0 ? Math.round((completedCount / totalLessons) * 100) : 0;
+
+            document.getElementById('progressFill').style.width = percentage + '%';
+            document.getElementById('progressFill').textContent = percentage + '%';
+            document.getElementById('progressText').textContent = `${completedCount} of ${totalLessons} lessons completed`;
+
+            // Update module progress
+            courseData.forEach(module => {
+                const moduleCompleted = module.lessons.filter(lesson =>
+                    completedLessons[`lesson-${lesson.id}`]
+                ).length;
+                document.getElementById(`progress-${module.id}`).textContent =
+                    `${moduleCompleted}/${module.lessons.length}`;
+            });
+
+            // Update stats
+            const modulesCompleted = courseData.filter(module => {
+                return module.lessons.every(lesson => completedLessons[`lesson-${lesson.id}`]);
+            }).length;
+            document.getElementById('modulesCompleted').textContent = modulesCompleted;
+            document.getElementById('lessonsCompleted').textContent = completedCount;
+
+            // Enable/disable certification button
+            const certBtn = document.getElementById('certificationBtn');
+            if (percentage === 100) {
+                certBtn.disabled = false;
+            } else {
+                certBtn.disabled = true;
+            }
+        }
+
+        function saveProgress() {
+            localStorage.setItem('lashCourseProgress', JSON.stringify(completedLessons));
+        }
+
+        function loadProgress() {
+            const saved = localStorage.getItem('lashCourseProgress');
+            if (saved) {
+                completedLessons = JSON.parse(saved);
+            }
+        }
+
+        document.getElementById('certificationBtn').addEventListener('click', () => {
+            const certification = `
+╔════════════════════════════════════════════════════════════╗
+║                  CERTIFICATE OF COMPLETION                ║
+║                                                            ║
+║     Professional Lash Business Course                      ║
+║                                                            ║
+║              Awarded to _________________                  ║
+║                                                            ║
+║        For Successfully Completing All 16 Modules          ║
+║           and 69 Lessons in Professional Lash              ║
+║              Business Training                             ║
+║                                                            ║
+║        Date: ${new Date().toLocaleDateString()}                ║
+║                                                            ║
+║        Christi Elliott                                      ║
+║        Lash Business Course Instructor                     ║
+╚════════════════════════════════════════════════════════════╝
+            `;
+            alert(certification);
+        });
+
+        loadProgress();
+        initializeCourse();
+        updateProgress();
+    </script>
+</body>
+</html>
